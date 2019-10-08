@@ -33,7 +33,7 @@ json格式，status=0正常，1为已注册，2为参数为空，data为结果�
 json 格式，status=0 正常，is_login=1已登录，is_login=0未登录，data为用户session_key需存在客户端。
 
 4. 更新用户头像:
-方法 : customer_update_avatar
+方法 : customer/update_avatar
 参数 : 
 1) session_key vchar(55) 必填[存在本地的用户session]
 2) base64_string 必填[图片的base64格式，目前只支持png和jpg两种格式图片]
