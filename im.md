@@ -88,3 +88,26 @@ data 为返回的详细信息
 5）status=4 没有可领取的红包
 6) status=5 没有权限领取红包
 
+9.加好友
+方法: im/friend_add
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)user_id vchar(22) 必填[对方用户Id]
+返回(json格式):
+1) status=0 成功
+2) status=1 user_id为空
+3）status=2 用户未登录
+4) status=3 用户不存在
+5）status=4 已经是好友了,重复添加
+6) status=5 该用户无法加为好友
+7) status=6 不能添加自己为好友
+
+10.获取好友列表
+方法: im/friend_list
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+返回(json格式):
+1) status=0 成功,data里面为好友列表详情
+2) status=1,好友列表为空
+3) status=2,用户未登录
+
