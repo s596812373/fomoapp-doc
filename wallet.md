@@ -22,4 +22,15 @@ data 为user_coins 列表，包含:
 status=0 成功，status=2未登录，status=1不支持该币种，status=3无法分配地址
 data 为 返回的充值地址
 
+3. 提交提现申请
+方法: wallet/withdraw
+参数:
+1) session_key vchar(55) 必填；
+2) coin_id int(6)	[币ID]必填；
+3) amount int       [提现数量]必填;
+4) to     vchar(125)  [提现到地址]必填;
+返回(json格式)
+status=0 成功，status=2未登录，status=1参数不足，status=3不存在的币，status=4,用户没有该资产，status=5，余额不足
+data 为 返回的充值地址
+
 
