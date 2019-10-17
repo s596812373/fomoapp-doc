@@ -3,7 +3,7 @@
 参数： 
 1)phone vchar(20) 必填[手机号]
 返回：
-json格式，status=0代表正常，其它代表异常，data为结果详情
+json格式，status=1成功,0参数不足，5内部错误
 
 2. 用户注册:
 方法 : customer/insert
