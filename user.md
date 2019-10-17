@@ -40,7 +40,7 @@ json 格式，status=1 正常; status=0 参数不足; status=11 用户名错误;
 status=1 成功,17 base64_string格式错误，18 图片格式错误
 data 若成功，则返回上传头像的url, 否则返回错误详情!
 
-5. 获取本人信息"
+5. 获取本人信息:
 方法 : customer/get_user_info
 参数 : 
 1) session_key vchar(55) 必填[存在本地的用户session]
