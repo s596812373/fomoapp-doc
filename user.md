@@ -47,3 +47,10 @@ data 若成功，则返回上传头像的url, 否则返回错误详情!
 返回:
 status=1 正常; status=2 未登录; status=3 session错误或者用户不存在
 
+6. 设置支付密码:
+
+方法 : customer/set_wallet_pwd
+参数 : 
+1) session_key vchar(55) 必填[存在本地的用户session]
+2) wallet_pwd vchar(55) 必填[钱包支付密码] 
+
