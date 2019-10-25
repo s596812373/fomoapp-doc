@@ -24,7 +24,7 @@ scope=[权限容器]
 
 用户提交上述页面信息后跳转到接入方提供的redirect_uri并在浏览器参数中带有code
 
-2. 用获取的code获取access_token
+2. 用获取的code获取access_token和refresh_token
 方法名称: /oauth2/authorize/token
 传递参数(post 方法):
 code: [上步获取的code],
@@ -33,6 +33,15 @@ client_secret: [app secret],
 grant_type: [填authorization_code或者code],
 scope:[容器权限],
 state:[随机字符串]
+
+4.刷新token
+方法名称: /oauth2/RefreshToken
+传递参数(post 方法)
+refresh_token：上步获得的refresh_token,
+client_id :
+client_secret :
+grant_type : refresh_token,
+scope : userinfo
 
 3. 将access_token装入请求api的头部
 AUTHORIZATION : Bearer [access_token]
@@ -92,7 +101,7 @@ AUTHORIZATION : Bearer [access_token]
     state=[随机字符串]
     scope=paytoken
     response_type=code
-    充值成功或失败跳转到接入方网址,携带参数:
+    转账成功或失败跳转到接入方网址,携带参数:
     status =1,成功，其它值，失败，具体见附录错误码
     trade_id=[接入方交易ID]
     amount=[充值或转账金额]
@@ -102,4 +111,48 @@ AUTHORIZATION : Bearer [access_token]
     client_id=[接入方app id]
     redirect_uri=[回调网址]
     state=[随机字符串]   
+
+
+
+
+
+
+    附录一：错误码
+
+            0   =>  "参数不足",
+            1   =>  "成功",
+            2   =>  "用户未登录",
+            3   =>  "session错误或用户不存在",
+            5   =>  "内部错误",
+            6   =>  "状态码不存在",
+            7   =>  "签名错误",
+            8   =>  "签名过期",
+            11  =>  "用户名错误",
+            12  =>  "密码错误",
+            13  =>  "电话格式错误",
+            14  =>  "邮箱格式错误",
+            15  =>  "电话已注册",
+            16  =>  "邮箱已注册",
+            17  =>  "base64 string格式错误",
+            18  =>  "图片格式错误，只支持png和jpg",
+            21  =>  "不支持该币种",
+            22  =>  "无法分配地址",
+            23  =>  "不存在的币",
+            24  =>  "余额不足",
+            25  =>  "未设置资金密码",
+            26  =>  "资金密码错误",
+            41  =>  "融云错误",
+            51  =>  "群组名格式错误",
+            52  =>  "群组不存在",
+            53  =>  "重复加入该群",
+            61  =>  "红包金额错误",
+            62  =>  "没有可领取的红包",
+            63  =>  "没有权限领取红包",
+            71  =>  "重复添加好友",
+            72  =>  "该用户无法加为好友",
+            73  =>  "不能添加自己为好友",
+            74  =>  "该用户不存在",
+            80  =>  "client_id格式不符",
+            81  =>  "client_id已经注册",
+            82  =>  "client_id不存在",
 
