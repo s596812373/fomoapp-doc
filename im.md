@@ -38,25 +38,7 @@ data 为返回的im云的用户信息
 status=2 未登录，status=0 成功
 
 
-5.创建群组
-方法： im/group_create
-参数:
-1)session_key vchar(55) 必填[存在本地的用户session]
-2)group_name vchar(255) [群组名称]
-3)memo vchar(255) [群组备注]
-返回(json格式):
-status=1 成功, status=41,群组名格式错误，status=41 融云错误
-
-
-6.加入群组
-方法： im/group_join
-参数:
-1)session_key vchar(55) 必填[存在本地的用户session]
-2)group_id vchar(25) [群组ID]
-返回(json格式):
-status=43 群组不存在， status=44 用户已经加入该群组
-
-7.发送红包消息
+5.发送红包消息
 方法: im/msg_redpack_publish
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
@@ -73,7 +55,7 @@ status=43 群组不存在， status=44 用户已经加入该群组
 5) status=25 未设置资金密码
 6) status=26 资金密码错误
 
-8.领取红包
+6.领取红包
 方法: im/msg_redpack_accept
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
@@ -82,24 +64,8 @@ status=43 群组不存在， status=44 用户已经加入该群组
 1）status=62 没有可领取的红包
 2) status=63 没有权限领取红包
 
-9.加好友
-方法: im/friend_add
-参数:
-1)session_key vchar(55) 必填[存在本地的用户session]
-2)user_id vchar(22) 必填[对方用户Id]
-返回(json格式):
-5）status=71 已经是好友了,重复添加
-6) status=72 该用户无法加为好友
-7) status=73 不能添加自己为好友
 
-10.获取好友列表
-方法: im/friend_list
-参数:
-1)session_key vchar(55) 必填[存在本地的用户session]
-返回(json格式):
-1) status=1 成功,data里面为好友列表详情
-
-11. 发送兑换消息
+7. 发送兑换消息
 方法: im/msg_exchange_publish
 参数:
 1) session_key vchar(55) 必填[存在本地的用户session]
@@ -113,7 +79,7 @@ status=43 群组不存在， status=44 用户已经加入该群组
 返回(json格式):
 status=1 成功 data中包含了exchange_id等信息，需存入本地
 
-12. 领取兑换消息
+8. 领取兑换消息
 方法: im/msg_exchange_accept
 1) session_key vchar(55) 必填[存在本地的用户session]
 2) exchange_id int(11)  必填[兑换交易id]
