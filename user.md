@@ -54,3 +54,17 @@ status=1 正常; status=2 未登录; status=3 session错误或者用户不存在
 1) session_key vchar(55) 必填[存在本地的用户session]
 2) wallet_pwd vchar(55) 必填[钱包支付密码] 
 
+7.设置用户信息:
+
+方法 : customer/set_info
+参数 : 
+1) session_key vchar(55) 必填[存在本地的用户session]
+2) name vchar(55) 必填
+3) sex  vchar(20) 必填
+4) zip  vchar(20) 必填
+5) province vchar(55) 必填
+6) city vchar(55) 必填
+7) address  vchar(125)  必填
+8) country  vchar(55) 必填
+
+
