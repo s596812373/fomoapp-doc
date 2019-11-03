@@ -8,10 +8,11 @@ RC:GrpNtf
 方法： im/group_create
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
-2)group_name vchar(255) [群组名称]
-3)memo vchar(255) [群组备注]
+2)user_list vchar(125) 必填[邀请加入群组的用户id列表，用逗号隔开，如："7,8,15"]
+3)group_name vchar(255) 选填[群组名称]
+4)memo vchar(255) 选填[群组备注]
 返回(json格式):
-status=1 成功, status=41,群组名格式错误，status=41 融云错误
+若成功，则返回group_id
 
 2. 设置加群价格
 方法: im/group_set_price
@@ -67,3 +68,9 @@ status=1 成功, status=41,群组名格式错误，status=41 融云错误
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)group_id int(11) 必填[群组ID]
 3)pre_invite int(11) 必填[要邀请用户的user_id]
+
+10.解散群组(只能是管理员)
+方法: im/group_dismiss
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)group_id int(11) 必填[群组ID]
