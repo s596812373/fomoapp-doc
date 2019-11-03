@@ -86,3 +86,9 @@ user_group群组列表信息
 方法: im/hot_groups
 无需参数
 返回hot_groups 热门群组信息
+
+13. 主动退群
+方法: im/group_quit
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)group_id int(11) 必填[群组ID]
