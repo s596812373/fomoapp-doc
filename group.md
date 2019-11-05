@@ -92,3 +92,13 @@ user_group群组列表信息
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)group_id int(11) 必填[群组ID]
+
+14. 搜索群
+方法: im/group_search
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)search_words vchar(55) 必填[搜索关键词,可以通过群名或者群备注进行模糊搜索]
+3)page  int(11)     选填[当前页码，默认为1]
+4）each_page_count int(5)    选填[每页显示数，默认为20]
+返回:
+成功结果中包含is_join,0为未加入，1为已加入，count,搜索记录总数，可用于分页，其余为群列表信息

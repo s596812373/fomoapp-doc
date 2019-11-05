@@ -21,9 +21,19 @@ content, user1,user2,relation_id
 同时将推送消息给对方，消息内容包括
 content,user1,user2,status
 
-10.获取好友列表
+3.获取好友列表
 方法: im/friend_list
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 返回(json格式):
 1) status=1 成功,data里面为好友列表详情
+
+4.搜索好友
+方法: im/friend_search
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)search_words vchar(55) 必填[搜索关键词,可以通过用户的名字或者fomo_id进行模糊搜索，也可以通过手机号或者邮箱进行精确查找]
+3)page  int(11)     选填[当前页码，默认为1]
+4）each_page_count int(5)    选填[每页显示数，默认为20]
+返回:
+成功结果中包含is_friend,0为不是好友，1为是好友，count,搜索记录总数，可用于分页，其余为用户列表信息
