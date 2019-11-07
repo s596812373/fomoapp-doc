@@ -87,5 +87,5 @@ session_code, 需要在用户重置密码时用到
 11. 重置密码:
 方法: customer/set_pwd
 参数:
-1) session_code vchar(125) 必填[存在本地的session_code]
+1) session_key vchar(125) 必填[存在本地的session_code]
 2) pwd          vchar(22)  必填[新密码,前端验证两次密码是否一致，后端不再验证]
