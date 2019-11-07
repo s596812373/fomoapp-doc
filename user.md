@@ -68,14 +68,14 @@ status=1 正常; status=2 未登录; status=3 session错误或者用户不存在
 2) fomo_id vchar(22) 必填[全网唯一的fomo id号，数字或英文字母组合，不允许中文和空格] 
 
 
-9. 找回密码第一步:
+9. 发送验证码第一步:
 方法: customer/rec_pwd1
 参数:
 1) user_name    vchar(125)  必填[手机号或者邮箱号]
 返回(若成功):
 verify_id，user_id，这些需要存在本地，在下一步需要用到。
 
-10.找回密码第二步:
+10.发送验证码第二步:
 方法: customer/rec_pwd2
 参数:
 1) verify_id    int(11) 必填[上一步获取的verify_id]
