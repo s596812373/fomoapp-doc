@@ -37,3 +37,30 @@ content,user1,user2,status
 4）each_page_count int(5)    选填[每页显示数，默认为20]
 返回:
 成功结果中包含is_friend,0为不是好友，1为是好友，count,搜索记录总数，可用于分页，其余为用户列表信息
+
+5.获取好友详情
+方法: im/friend_detail
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)friend_id   int(11)   必填[要获取好友详情的user_id]
+返回:
+用户信息在friend_info中：
+id:用户ID，
+fomo_id,
+name,
+portraitUri,
+email,
+phone,
+sex,
+zip:邮编,
+province,
+city,
+address,
+country,
+friend_money:-1 不允许加为好友，0 可以通过申请加为好友，其它正数表示加为好友的价格
+
+6.删除好友
+方法: im/friend_del
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)friend_id   int(11)   必填[要获取好友详情的user_id]

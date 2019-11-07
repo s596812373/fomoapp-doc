@@ -38,7 +38,20 @@ data 若成功，则返回上传头像的url, 否则返回错误详情!
 参数 : 
 1) session_key vchar(55) 必填[存在本地的用户session]
 返回:
-status=1 正常; status=2 未登录; status=3 session错误或者用户不存在
+用户信息在user_info中：
+id:用户ID，
+fomo_id,
+name,
+portraitUri,
+email,
+phone,
+sex,
+zip:邮编,
+province,
+city,
+address,
+country,
+friend_money:-1 不允许加为好友，0 可以通过申请加为好友，其它正数表示加为好友的价格
 
 6. 设置支付密码:
 
@@ -52,13 +65,13 @@ status=1 正常; status=2 未登录; status=3 session错误或者用户不存在
 方法 : customer/set_info
 参数 : 
 1) session_key vchar(55) 必填[存在本地的用户session]
-2) name vchar(55) 必填
-3) sex  vchar(20) 必填
-4) zip  vchar(20) 必填
-5) province vchar(55) 必填
-6) city vchar(55) 必填
-7) address  vchar(125)  必填
-8) country  vchar(55) 必填
+2) name vchar(55) 选填
+3) sex  vchar(20) 选填
+4) zip  vchar(20) 选填
+5) province vchar(55) 选填
+6) city vchar(55) 选填
+7) address  vchar(125)  选填
+8) country  vchar(55) 选填
 
 8. 设置fomo id:
 

@@ -12,8 +12,6 @@ data 为返回的im云token
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)name vchar(255) 选填[im云上的用户名称]
 3)portraitUri vchar(255) 选填[im云上的用户头像地址]
-返回(json格式)
-status=2 未登录，status=0 成功
 
 
 3.获取用户im信息
@@ -34,9 +32,6 @@ data 为返回的im云的用户信息
 2)toUserId vchar(25)	必填[收信息用户ID]
 3）objectName vchar(128k)	必填[消息类别:文本,语音，小视频等，请参考融云文档]
 4)content 必填[消息内容]
-返回(json格式):
-status=2 未登录，status=0 成功
-
 
 5.发送红包消息
 方法: im/msg_redpack_publish
@@ -48,22 +43,13 @@ status=2 未登录，status=0 成功
 6) wallet_pwd vchar(25) 必填[支付密码]
 5）content   vchar(225)  选填(红包备注)
 返回(json格式):
-1) status=1 成功, data 为数组data['transfer_id']为红包交易Id,需存储在本地
-2) status=41 融云服务器错误，详情查看data
-3) status=61 红包金额错误
-4) status=24 余额不足
-5) status=25 未设置资金密码
-6) status=26 资金密码错误
+若成功, data 为数组data['transfer_id']为红包交易Id,需存储在本地
 
 6.领取红包
 方法: im/msg_redpack_accept
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)transfer_id vchar(22) 必填[红包交易Id]
-返回(json格式):
-1）status=62 没有可领取的红包
-2) status=63 没有权限领取红包
-
 
 7. 发送兑换消息
 方法: im/msg_exchange_publish
