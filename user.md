@@ -22,8 +22,20 @@
 1) login_name vchar(20) 必填[手机号或者邮箱号]
 2) pwd vchar(20) 必填[密码]
 返回:
-json 格式，status=1 正常; status=0 参数不足; status=11 用户名错误; status=12 密码错误;
-{加上用户所有个人信息}
+session_key, 保存在本地，用于用户将来登录
+user_info, 包含用户信息:
+id
+fomo_id
+name
+portraitUri: 头像
+email:
+phone:
+sex:
+friend_moeny: -1 无法加好友，0,可申请加好友，正数为加好友价格
+class: 用户等级
+
+{"status":1,"msg":"成功","data":{"session_key":"ad1647c6e14d29b3973ca5b7c0704b5aa1b31730","user_info":{"id":"7","fomo_id":"hudf_zh_fl","name":"wocao","portraitUri":"http:\/\/localhost\/martin-bk\/\/uploads\/avatar\/7_1570505849.png","email":"abc@126.com","phone":"123456789","sex":"0","last_time":"1569404712","status":"0","zip":null,"province":null,"city":null,"address":null,"country":null,"group":"0","add_time":"1569404712","update_time":"1573556297","is_deleted":"0","c_type":"0","extra_attr":null,"friend_money":"-1","class":"3"}}}
+
 
 4. 更新用户头像:
 方法 : customer/update_avatar
