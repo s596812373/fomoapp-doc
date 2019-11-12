@@ -13,6 +13,10 @@ RC:GrpNtf
 4)memo vchar(255) 选填[群组备注]
 返回(json格式):
 若成功，则返回group_id
+{返回所有群组信息}
+
+{设置群图标接口}
+{设置群共识}
 
 2. 设置加群价格
 方法: im/group_set_price
@@ -34,6 +38,9 @@ RC:GrpNtf
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)group_id int 必填[群组ID]
+{增加管理员列表}
+{增加是否免打扰}
+{增加群共识}
 
 5.加入群组
 方法： im/group_join
@@ -53,7 +60,9 @@ RC:GrpNtf
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)group_id int(11) 必填[群组ID]
-3)pre_admin int(11) 必填[要设置为管理员的user_id]
+3)pre_admin int(11) 必填[要设置为管理员的user_id] {一次设多个}
+
+{增加删除管理员}
 
 8.删除群组成员(只能是管理员)
 方法: im/group_delete_user
@@ -102,3 +111,8 @@ user_group群组列表信息
 4）each_page_count int(5)    选填[每页显示数，默认为20]
 返回:
 成功结果中包含is_join,0为未加入，1为已加入，count,搜索记录总数，可用于分页，其余为群列表信息
+
+
+{
+    15.私信，支付，群主收款
+}

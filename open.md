@@ -53,7 +53,7 @@ AUTHORIZATION : Bearer [access_token]
     调用方式： 客户端调用
     方法名称: oauth2/resource/get_user_info
     传递参数: 无
-
+{不用传给用户fomo_id}
 2. 用户充值:
     调用方式: 客户端调用
     跳转页面: 

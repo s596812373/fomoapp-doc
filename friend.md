@@ -28,6 +28,8 @@ content,user1,user2,status
 返回(json格式):
 1) status=1 成功,data里面为好友列表详情
 
+{需要增加fomo_id,class等}
+
 4.搜索好友
 方法: im/friend_search
 参数:
@@ -37,6 +39,8 @@ content,user1,user2,status
 4）each_page_count int(5)    选填[每页显示数，默认为20]
 返回:
 成功结果中包含is_friend,0为不是好友，1为是好友，count,搜索记录总数，可用于分页，其余为用户列表信息
+{"status":1,"msg":"成功","data":{"page":1,"each_page_count":20,"total":1,"customers":[{"is_friend":0,"user_id":"17","fomo_id":"","name":"西部世界游戏公司","portraitUri":"","email":"gwb@123.com","phone":"13555555555","sex":"","province":"","city":"","friend_money":""}]}}
+{差一个等级class}
 
 5.获取好友详情
 方法: im/friend_detail
@@ -65,3 +69,8 @@ class: 用户等级，代表总资产换算成比特币的数量等级
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)friend_id   int(11)   必填[要获取好友详情的user_id]
+
+{
+7.加入黑名单    
+}
+

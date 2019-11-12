@@ -23,6 +23,7 @@
 2) pwd vchar(20) 必填[密码]
 返回:
 json 格式，status=1 正常; status=0 参数不足; status=11 用户名错误; status=12 密码错误;
+{加上用户所有个人信息}
 
 4. 更新用户头像:
 方法 : customer/update_avatar
@@ -32,6 +33,7 @@ json 格式，status=1 正常; status=0 参数不足; status=11 用户名错误;
 返回(json格式):
 status=1 成功,17 base64_string格式错误，18 图片格式错误
 data 若成功，则返回上传头像的url, 否则返回错误详情!
+
 
 5. 获取本人信息:
 方法 : customer/get_user_info
@@ -67,7 +69,7 @@ class: 用户等级，代表总资产换算成比特币的数量等级
 参数 : 
 1) session_key vchar(55) 必填[存在本地的用户session]
 2) name vchar(55) 选填
-3) sex  vchar(20) 选填
+3) sex  tinyint(0) 选填
 4) zip  vchar(20) 选填
 5) province vchar(55) 选填
 6) city vchar(55) 选填
@@ -103,3 +105,6 @@ session_code, 需要在用户重置密码时用到
 参数:
 1) session_key vchar(125) 必填[存在本地的session_code]
 2) pwd          vchar(22)  必填[新密码,前端验证两次密码是否一致，后端不再验证]
+
+
+{12. 绑定手机号和邮箱}
