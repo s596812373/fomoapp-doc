@@ -127,7 +127,6 @@ tmp_session, 需要在用户重置密码时用到
 1) session_key vchar(125) 必填[存在本地的session_code]
 2) email    vchar(125)     必填[需要绑定的邮箱地址]
 返回:
-email_code: 验证码
 verify_id: 验证ID，保存在本地，下一步需要
 
 13. 绑定手机第一步:
@@ -136,7 +135,6 @@ verify_id: 验证ID，保存在本地，下一步需要
 1) session_key vchar(125) 必填[存在本地的session_code]
 2) phone    vchar(55)     必填[需要绑定的手机号]
 返回:
-phone_code: 验证码
 verify_id: 验证ID，保存在本地，下一步需要
 
 14. 完成手机或者邮箱绑定
@@ -151,7 +149,6 @@ verify_id: 验证ID，保存在本地，下一步需要
 参数:
 1) session_key vchar(125) 必填[存在本地的session_code]
 返回:
-email_code: 验证码
 verify_id: 验证ID，保存在本地，下一步需要
 
 16. 解邦手机第一步:
@@ -159,7 +156,6 @@ verify_id: 验证ID，保存在本地，下一步需要
 参数:
 1) session_key vchar(125) 必填[存在本地的session_code]
 返回:
-phone_code: 验证码
 verify_id: 验证ID，保存在本地，下一步需要 
 
 17. 完成手机或者邮箱解邦
