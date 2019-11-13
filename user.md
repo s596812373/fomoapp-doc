@@ -13,7 +13,8 @@
 2)verify_id     int(11)     必填[上一步返回的verify_id]
 3)tmp_user_id   int(11)     必填[上一步返回的tmp_user_id]
 返回:
-若成功则返回user_id
+若成功则返回user_id和fomo_id
+{"status":1,"msg":"成功","data":{"user_id":23,"fomo_id":"fm_B0S9D"}}
 
 
 3. 用户登录：
@@ -74,6 +75,7 @@ class: 用户等级，代表总资产换算成比特币的数量等级
 参数 : 
 1) session_key vchar(55) 必填[存在本地的用户session]
 2) wallet_pwd vchar(55) 必填[钱包支付密码] 
+3) tmp_session vchar(125) 必填[第10个接口返回的tmp_session]
 
 7.设置用户信息:
 
@@ -110,13 +112,59 @@ verify_id，user_id，这些需要存在本地，在下一步需要用到。
 2) user_id      int(11) 必填[上一步获取的user_id]
 3) verify_code  vchar(8) 必填[用户输入的验证码]
 返回(若成功):
-session_code, 需要在用户重置密码时用到
+tmp_session, 需要在用户重置密码时用到
 
 11. 重置密码:
 方法: customer/set_pwd
 参数:
-1) session_key vchar(125) 必填[存在本地的session_code]
+1) tmp_session vchar(125) 必填[第10个接口返回的tmp_session]
 2) pwd          vchar(22)  必填[新密码,前端验证两次密码是否一致，后端不再验证]
 
 
-{12. 绑定手机号和邮箱}
+12. 绑定邮箱第一步:
+方法: customer/bind_email
+参数:
+1) session_key vchar(125) 必填[存在本地的session_code]
+2) email    vchar(125)     必填[需要绑定的邮箱地址]
+返回:
+email_code: 验证码
+verify_id: 验证ID，保存在本地，下一步需要
+
+13. 绑定手机第一步:
+方法: customer/bind_phone
+参数:
+1) session_key vchar(125) 必填[存在本地的session_code]
+2) phone    vchar(55)     必填[需要绑定的手机号]
+返回:
+phone_code: 验证码
+verify_id: 验证ID，保存在本地，下一步需要
+
+14. 完成手机或者邮箱绑定
+方法: customer/bind_completed
+参数:
+1) session_key vchar(125) 必填[存在本地的session_code]
+2) verify_code vchar(12)  必填[用户输入的验证码]
+3) verfify_id  int(11)    必填[上步收到的存在本地的验证ID]
+
+15. 解邦邮箱第一步:
+方法: customer/unbind_email
+参数:
+1) session_key vchar(125) 必填[存在本地的session_code]
+返回:
+email_code: 验证码
+verify_id: 验证ID，保存在本地，下一步需要
+
+16. 解邦手机第一步:
+方法: customer/unbind_phone
+参数:
+1) session_key vchar(125) 必填[存在本地的session_code]
+返回:
+phone_code: 验证码
+verify_id: 验证ID，保存在本地，下一步需要 
+
+17. 完成手机或者邮箱解邦
+方法: customer/unbind_completed
+参数:
+1) session_key vchar(125) 必填[存在本地的session_code]
+2) verify_code vchar(12)  必填[用户输入的验证码]
+3) verfify_id  int(11)    必填[上步收到的存在本地的验证ID]
