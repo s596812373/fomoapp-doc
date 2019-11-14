@@ -68,7 +68,8 @@ AUTHORIZATION : Bearer [access_token]
     user_id=[充值者在FOMO平台的user id]
     access_token=[前面获取的access_token]
     client_id=[接入方app id]
-    redirect_uri=[回调网址]
+    redirect_uri=[后端回调网址，跟注册app时填写的redirect_uri保持一致]
+    front_uri=[前端回调网址]
     state=[随机字符串]
     scope=paytoken
     response_type=code
@@ -82,6 +83,11 @@ AUTHORIZATION : Bearer [access_token]
     client_id=[接入方app id]
     redirect_uri=[回调网址]
     state=[随机字符串]
+
+    前端回调返回信息:
+    status: 状态码，请根据附录一查询对应说明
+    httpcode: 后端回调返回的HTTP状态
+    transfer_id: FOMOAPP平台的交易ID，只有在支付成功时返回
 
  3. 用户提现:
     调用方式: 服务端调用
@@ -97,7 +103,8 @@ AUTHORIZATION : Bearer [access_token]
     user_id=[充值者在FOMO平台的user id]
     access_token=[前面获取的access_token]
     client_id=[接入方app id]
-    redirect_uri=[回调网址]
+    redirect_uri=[后端回调网址，跟注册app时填写的redirect_uri保持一致]
+    front_uri=[前端回调网址]
     state=[随机字符串]
     scope=paytoken
     response_type=code
@@ -111,6 +118,28 @@ AUTHORIZATION : Bearer [access_token]
     client_id=[接入方app id]
     redirect_uri=[回调网址]
     state=[随机字符串]   
+
+    前端回调返回信息:
+    status: 状态码，请根据附录一查询对应说明
+    httpcode: 后端回调返回的HTTP状态
+    transfer_id: FOMOAPP平台的交易ID，只有在支付成功时返回
+
+四 ： 接入方需提供的支付回调
+请求方式: POST
+url: app管理员在开放平台设置的回调地址
+传入值：
+transfer_id     此订单在FOMO平台的交易ID
+user_id         支付用户在FOMO平台的用户ID
+trade_id        接入方的交易号
+coin_id         支付的币种ID
+amount          支付金额
+cut_amount      支付产生的手续费
+direction       1为用户向接入方充值，2为接入方向用户转账
+
+注意:
+1.从用户转到接入方，或者从接入方转到用户都有回调，且使用同一个回调地址
+2.回调失败后会有重试
+3.返回200HTTP状态码即为回调成功，若不成功每10分钟发起一次回调，超过100次则不再发起
 
 
 
@@ -182,4 +211,6 @@ AUTHORIZATION : Bearer [access_token]
             201 =>  "临时验证令牌错误",
             151 =>  "user_list用户组格式错误",
             152 =>  "创建群至少要3个以上用户",
+            153 =>  "用户资产不满足本群共识",
+            201 =>  "接入方交易ID trade_id重复",
 
