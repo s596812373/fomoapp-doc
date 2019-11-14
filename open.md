@@ -68,8 +68,8 @@ AUTHORIZATION : Bearer [access_token]
     user_id=[充值者在FOMO平台的user id]
     access_token=[前面获取的access_token]
     client_id=[接入方app id]
-    redirect_uri=[后端回调网址，跟注册app时填写的redirect_uri保持一致]
-    front_uri=[前端回调网址]
+    server_uri=[后端回调网址]
+    redirect_uri=[前端回调网址，跟注册app时填写的redirect_uri保持一致]
     state=[随机字符串]
     scope=paytoken
     response_type=code
