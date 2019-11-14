@@ -112,6 +112,14 @@ user_group群组列表信息
 返回:
 成功结果中包含is_join,0为未加入，1为已加入，count,搜索记录总数，可用于分页，其余为群列表信息
 
+15. 设置加群共识(只能是群主)
+方法: im/group_set_consensus
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2) group_id int(11) 必填[群组ID]
+3)consensus_coin int(11)    必填[共识币ID]
+4）consensus_value float     必填[共识币金额]
+
 
 {
     15.私信，支付，群主收款
