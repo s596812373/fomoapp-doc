@@ -96,7 +96,7 @@ AUTHORIZATION : Bearer [access_token]
     浏览器携带的参数:  
     direction=[1为用户向接入方充值，2为接入方向用户转账;这里为2]
     timestamp=[当前时间戳，10分钟内有效]
-    sign=[签名计算公式:sha1(client_secrent+timestamp)]
+    sign=[签名计算公式:sha1(client_secret+timestamp)]
     trade_id=[接入方交易ID]
     amount=[充值或转账金额]
     coin_id=[币种ID]

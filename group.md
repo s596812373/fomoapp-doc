@@ -62,47 +62,52 @@ RC:GrpNtf
 2)group_id int(11) 必填[群组ID]
 3)pre_admin int(11) 必填[要设置为管理员的user_id] {一次设多个}
 
-{增加删除管理员}
+8.删除管理员(只能是群主)
+方法:im/group_delete_admin
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)group_id int(11) 必填[群组ID]
+3)pre_admin int(11) 必填[要设置为管理员的user_id]
 
-8.删除群组成员(只能是管理员)
+9.删除群组成员(只能是管理员)
 方法: im/group_delete_user
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)group_id int(11) 必填[群组ID]
 3)pre_del int(11) 必填[要删除用户的user_id]
 
-9.邀请加群(只能是管理员)
+10.邀请加群(只能是管理员){一次邀请多个}
 方法:im/group_invite_user
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)group_id int(11) 必填[群组ID]
 3)pre_invite int(11) 必填[要邀请用户的user_id]
 
-10.解散群组(只能是管理员)
+11.解散群组(只能是管理员)
 方法: im/group_dismiss
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)group_id int(11) 必填[群组ID]
 
-11.用戶群组列表
+12.用戶群组列表
 方法: im/user_groups
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 返回:
 user_group群组列表信息
 
-12.热门群列表
+13.热门群列表
 方法: im/hot_groups
 无需参数
 返回hot_groups 热门群组信息
 
-13. 主动退群
+14. 主动退群
 方法: im/group_quit
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)group_id int(11) 必填[群组ID]
 
-14. 搜索群
+15. 搜索群
 方法: im/group_search
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
@@ -112,13 +117,21 @@ user_group群组列表信息
 返回:
 成功结果中包含is_join,0为未加入，1为已加入，count,搜索记录总数，可用于分页，其余为群列表信息
 
-15. 设置加群共识(只能是群主)
+16. 设置加群共识(只能是群主)
 方法: im/group_set_consensus
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 2) group_id int(11) 必填[群组ID]
 3)consensus_coin int(11)    必填[共识币ID]
 4）consensus_value float     必填[共识币金额]
+
+17. 通过或者拒绝加群申请
+方法: im/group_react_join
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)group_id int(11) 必填[群组ID]
+3)pre_user int(11)  必填[申请者用户ID]
+4）action    tinyint(1) 选填[1为通过，2为拒绝，默认为通过]
 
 
 {
