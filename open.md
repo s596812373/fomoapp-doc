@@ -103,6 +103,7 @@ AUTHORIZATION : Bearer [access_token]
     user_id=[充值者在FOMO平台的user id]
     access_token=[前面获取的access_token]
     client_id=[接入方app id]
+    server_uri=[后端回调网址]
     redirect_uri=[后端回调网址，跟注册app时填写的redirect_uri保持一致]
     front_uri=[前端回调网址]
     state=[随机字符串]
@@ -126,7 +127,7 @@ AUTHORIZATION : Bearer [access_token]
 
 四 ： 接入方需提供的支付回调
 请求方式: POST
-url: app管理员在开放平台设置的回调地址
+url: 后端回调网址
 传入值：
 transfer_id     此订单在FOMO平台的交易ID
 user_id         支付用户在FOMO平台的用户ID
