@@ -143,6 +143,19 @@ user_group群组列表信息
 2)group_id int(11) 必填[群组ID]
 3)price float 必填[价格]
 
-{
-    16.私信，支付，群主收款
-}
+19. 支付私聊
+方法: im/group_pay_private
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)group_id int(11) 必填[群组ID]
+3)wallet_pwd vchar(55) 选填[钱包密码]
+
+20. 查看是否可以在群内私聊对方
+方法: im/group_can_private
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)group_id int(11) 必填[群组ID]
+3)to_user int(11) 必填[该群组试图私聊对象ID]
+返回:
+data中的
+can_private:    true 表示可以私聊，false 表示不可以私聊
+private_reason: 表示可以或者不可以私聊的原因
