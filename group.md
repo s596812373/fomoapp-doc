@@ -133,6 +133,12 @@ user_group群组列表信息
 3)pre_user int(11)  必填[申请者用户ID]
 4）action    tinyint(1) 选填[1为通过，2为拒绝，默认为通过]
 
+18. 设置私聊价格
+方法: im/group_set_private
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)group_id int(11) 必填[群组ID]
+3)price float 必填[价格]
 
 {
     16.私信，支付，群主收款
