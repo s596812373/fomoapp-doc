@@ -19,7 +19,6 @@ MSG:join_group
 {返回所有群组信息}
 
 {设置群图标接口}
-{设置群共识}
 
 2. 设置加群价格
 方法: im/group_set_price

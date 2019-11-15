@@ -11,37 +11,37 @@ http://39.108.51.7/openfomo/login.html
 http://39.108.51.7/fomo/
 
 
-1.通过如下跳转页面获取code(由app客户端调用):
-方法名称:oauth2/authorize
-GET 参数:
-1) response_type=code
-2) client_id=[申请注册的appid]
-3) redirect_uri=[接入方跳转地址]
-4) state=[随机字符串]
-POST 参数:
-1)  authorized vchar(22) 必填[同意为"yes",取消为其它任意字符串]
-2)  session_key vchar(125) 必填[用户保存在安卓的session_key]
-用户提交上述页面信息后若成功则跳转到接入方提供的redirect_uri并在浏览器参数中带有code，
-如果取消或者失败则返回"error"
+1.通过如下跳转页面获取code:
+base_url+oauth2/authorize
+url携带参数:
+response_type=code
+client_id=[申请注册的appid]
+redirect_uri=[接入方跳转地址]
+state=[随机字符串]
+scope=[权限容器]
+其中:
+权限容器：不同权限之间用空格隔开，如: userinfo paytoken
+
+用户提交上述页面信息后跳转到接入方提供的redirect_uri并在浏览器参数中带有code
 
 2. 用获取的code获取access_token和refresh_token
 方法名称: /oauth2/authorize/token
-POST 参数:
-1)code: [上步获取的code],
-2)client_id: [app id],
-3)client_secret: [app secret],
-4)grant_type: [填authorization_code或者code],
-5)scope:[容器权限],
-6)state:[随机字符串]
+传递参数(post 方法):
+code: [上步获取的code],
+client_id: [app id],
+client_secret: [app secret],
+grant_type: [填authorization_code或者code],
+scope:[容器权限],
+state:[随机字符串]
 
 4.刷新token
 方法名称: /oauth2/RefreshToken
-POST 参数
-1) refresh_token：上步获得的refresh_token,
-2) client_id :
-3) client_secret :
-4) grant_type : refresh_token,
-5) scope : userinfo
+传递参数(post 方法)
+refresh_token：上步获得的refresh_token,
+client_id :
+client_secret :
+grant_type : refresh_token,
+scope : userinfo
 
 3. 将access_token装入请求api的头部
 AUTHORIZATION : Bearer [access_token]
@@ -50,64 +50,80 @@ AUTHORIZATION : Bearer [access_token]
 三： 调用api
 
 1. 获取用户信息:
-    调用方式： 接入方客户端调用
+    调用方式： 客户端调用
     方法名称: oauth2/resource/get_user_info
     传递参数: 无
     
-2. 用户预充值:
-    调用方式: 接入方客户端调用
-    方法名称: oauth2/authorize/pre_pay
-    GET 参数:  
-1) direction=[1为用户向接入方充值，2为接入方向用户转账;这里为1]
-2)  timestamp=[当前时间戳，10分钟内有效]
-3)  sign=[签名计算公式:sha1(client_secrent+timestamp)]
-4)  trade_id=[接入方交易ID]
-5)  amount=[充值或转账金额]
-6)  coin_id=[币种ID]
-7)  user_id=[充值者在FOMO平台的user id]
-8)  access_token=[前面获取的access_token]
-9)  client_id=[接入方app id]
-10)  redirect_uri=[前端回调网址，跟注册app时填写的redirect_uri保持一致]
-11) state=[随机字符串]
-12) scope=paytoken
-13) response_type=code
+2. 用户充值:
+    调用方式: 客户端调用
+    跳转页面: 
+    oauth2/authorize/pay
+    浏览器携带的参数:  
+    direction=[1为用户向接入方充值，2为接入方向用户转账;这里为1]
+    timestamp=[当前时间戳，10分钟内有效]
+    sign=[签名计算公式:sha1(client_secrent+timestamp)]
+    trade_id=[接入方交易ID]
+    amount=[充值或转账金额]
+    coin_id=[币种ID]
+    user_id=[充值者在FOMO平台的user id]
+    access_token=[前面获取的access_token]
+    client_id=[接入方app id]
+    server_uri=[后端回调网址]
+    redirect_uri=[前端回调网址，跟注册app时填写的redirect_uri保持一致]
+    state=[随机字符串]
+    scope=paytoken
+    response_type=code
+    充值成功或失败跳转到接入方网址,携带参数:
+    status =1,成功，其它值，失败，具体见附录错误码
+    trade_id=[接入方交易ID]
+    amount=[充值或转账金额]
+    coin_id=[币种ID]
+    user_id=[充值者在FOMO平台的user id]
+    access_token=[前面获取的access_token]
+    client_id=[接入方app id]
+    redirect_uri=[回调网址]
+    state=[随机字符串]
 
     前端回调返回信息:
-1） status: 状态码，0为失败，1为成功
-2） transfer_id: FOMOAPP平台的交易ID，只有在支付成功时返回,下一步通知安卓发起支付时需要用到
+    status: 状态码，请根据附录一查询对应说明
+    httpcode: 后端回调返回的HTTP状态
+    transfer_id: FOMOAPP平台的交易ID，只有在支付成功时返回
 
  3. 用户提现:
     调用方式: 服务端调用
-    方法名称: oauth2/authorize/pre_pay
-    GET 参数:  
-1) direction=[1为用户向接入方充值，2为接入方向用户转账;这里为2]
-2)  timestamp=[当前时间戳，10分钟内有效]
-3)  sign=[签名计算公式:sha1(client_secrent+timestamp)]
-4)  trade_id=[接入方交易ID]
-5)  amount=[充值或转账金额]
-6)  coin_id=[币种ID]
-7)  user_id=[充值者在FOMO平台的user id]
-8)  access_token=[前面获取的access_token]
-9)  client_id=[接入方app id]
-10)  redirect_uri=[前端回调网址，跟注册app时填写的redirect_uri保持一致]
-11) state=[随机字符串]
-12) scope=paytoken
-13) response_type=code
+    跳转页面: 
+    oauth2/authorize/pay
+    浏览器携带的参数:  
+    direction=[1为用户向接入方充值，2为接入方向用户转账;这里为2]
+    timestamp=[当前时间戳，10分钟内有效]
+    sign=[签名计算公式:sha1(client_secret+timestamp)]
+    trade_id=[接入方交易ID]
+    amount=[充值或转账金额]
+    coin_id=[币种ID]
+    user_id=[充值者在FOMO平台的user id]
+    access_token=[前面获取的access_token]
+    client_id=[接入方app id]
+    server_uri=[后端回调网址]
+    redirect_uri=[后端回调网址，跟注册app时填写的redirect_uri保持一致]
+    front_uri=[前端回调网址]
+    state=[随机字符串]
+    scope=paytoken
+    response_type=code
+    转账成功或失败跳转到接入方网址,携带参数:
+    status =1,成功，其它值，失败，具体见附录错误码
+    trade_id=[接入方交易ID]
+    amount=[充值或转账金额]
+    coin_id=[币种ID]
+    user_id=[充值者在FOMO平台的user id]
+    access_token=[前面获取的access_token]
+    client_id=[接入方app id]
+    redirect_uri=[回调网址]
+    state=[随机字符串]   
 
     前端回调返回信息:
-1） status: 状态码，0为失败，1为成功
-2） transfer_id: FOMOAPP平台的交易ID，只有在支付成功时返回,下一步通知FOMO前端发起支付时需要用到
-
- 4. 确认转账：   
-    调用方式: FOMO客户端调用
-    方法名称: oauth2/authorize/confirm_pay
-    GET 参数:
-1)  server_uri=[必填，后端回调网址]
-2)  redirect_uri=[必填，前端回调网址，跟注册app时填写的redirect_uri保持一致]
-3）  trade_id=[必填，接入方交易ID]
-    POST 参数:
-1）  transfer_id 必填[上一步返回的transfer_id]
-2)  wallet_pwd  必填[用户输入的支付密码] 
+    status: 状态码，请根据附录一查询对应说明
+    httpcode: 后端回调返回的HTTP状态
+    transfer_id: FOMOAPP平台的交易ID，只有在支付成功时返回
 
 四 ： 接入方需提供的支付回调
 请求方式: POST
@@ -120,7 +136,6 @@ coin_id         支付的币种ID
 amount          支付金额
 cut_amount      支付产生的手续费
 direction       1为用户向接入方充值，2为接入方向用户转账
-status          1为支付成功，0为支付失败
 
 注意:
 1.从用户转到接入方，或者从接入方转到用户都有回调，且使用同一个回调地址
