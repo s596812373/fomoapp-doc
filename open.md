@@ -68,7 +68,7 @@ AUTHORIZATION : Bearer [access_token]
 6)  coin_id=[币种ID]
 7)  client_id=[接入方app id]
 8)  server_uri=[必填，后端回调网址]
-9) redirect_uri=[前端回调网址，跟注册app时填写的redirect_uri保持一致]
+9)  redirect_uri=[前端回调网址，跟注册app时填写的redirect_uri保持一致]
 10) state=[随机字符串]
 11) scope=paytoken
 12) response_type=code
@@ -125,6 +125,11 @@ AUTHORIZATION : Bearer [access_token]
 2)   wallet_pwd  必填[用户输入的支付密码] 
 3)  session_key 必填[保存在FOMOAPP客户端的session_key]
 PS: 未确认交易3分钟之后会过期
+    返回信息:
+1) success: true 为支付成功，false为支付失败
+2) status: 状态码
+3) msg: 状态说明
+4) data: 数组。包含transfer_id: FOMOAPP平台的交易ID; trade_id: 第三方平台的交易ID; httpcode: 支付成功第一次回调第三方服务端的HTTP请求状态    
 
 四 ： 接入方需提供的支付回调
 请求方式: POST
