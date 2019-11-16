@@ -129,7 +129,7 @@ status          1为支付成功，0为支付失败
 
 5. 给用户提现:
     调用方式: 服务端调用
-    方法名称: oauth2/authorize/payUser
+    方法名称: oauth2/authorize/pay_user
     GET 参数:  
 1)  direction=[1为用户向接入方充值，2为接入方向用户转账;这里为2]
 2)  timestamp=[当前时间戳，10分钟内有效]
