@@ -124,6 +124,7 @@ AUTHORIZATION : Bearer [access_token]
 1）  transfer_id 必填[上一步返回的transfer_id]
 2)   wallet_pwd  必填[用户输入的支付密码] 
 3)  session_key 必填
+PS: 未确认交易3分钟之后会过期
 
 四 ： 接入方需提供的支付回调
 请求方式: POST
