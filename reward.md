@@ -89,7 +89,21 @@ user_id(用户id), code(用户给他人的邀请码),class(用户等级，0或1)
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)parent_code   vchar(12) 必填[上级邀请码]
 返回结果：
-若成功，则返回用户自己的邀请码等信息
+若成功，则返回用户自己的邀请码等信息,code 为自己的邀请吗
+{
+	"success": true,
+	"status": 1,
+	"msg": "成功",
+	"data": {
+		"user_id": "17",
+		"code": "30T5S",
+		"class": 1,
+		"parent_id": "9",
+		"parent_code": "20MFE",
+		"update_time": 1573999272,
+		"create_time": 1573999272
+	}
+}
 
 5. 今日签到
 方法:	customer/sign_in_today
