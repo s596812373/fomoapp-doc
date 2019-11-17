@@ -15,7 +15,70 @@ next_start: 充值扫描下一次起始区块
 is_active: 是否可用
 sort_id: 排序权重
 
-{"status":1,"msg":"成功","data":{"active_coins":[{"id":"1","chain_id":"3","coin_type":"0","price":"0.1","name":"vnt","description":"","bc_expolorer":"","contract":"","decimals":"8","min_amount":"1","next_start":"0","is_active":"1","sort_id":"0"},{"id":"3","chain_id":"3","coin_type":"0","price":"188.93","name":"eth","description":"","bc_expolorer":"","contract":"","decimals":"18","min_amount":"1","next_start":"6739398","is_active":"1","sort_id":"0"},{"id":"5","chain_id":"3","coin_type":"0","price":"0.9993","name":"usdt","description":"","bc_expolorer":"","contract":"0x3551206D38A1D76C3616b8cf2A239Bc3893E4119","decimals":"6","min_amount":"1","next_start":"6739398","is_active":"1","sort_id":"0"},{"id":"8","chain_id":"1","coin_type":"0","price":"9027.06","name":"btc","description":"bitcoin","bc_expolorer":"bitcoin.org","contract":"","decimals":"18","min_amount":"1","next_start":"0","is_active":"1","sort_id":"0"}]}}
+{
+    "success": true,
+	"status": 1,
+	"msg": "成功",
+	"data": {
+		"active_coins": [{
+			"id": "1",
+			"chain_id": "3",
+			"coin_type": "0",
+			"price": "0.1",
+			"name": "vnt",
+			"description": "",
+			"bc_expolorer": "",
+			"contract": "",
+			"decimals": "8",
+			"min_amount": "1",
+			"next_start": "0",
+			"is_active": "1",
+			"sort_id": "0"
+		}, {
+			"id": "3",
+			"chain_id": "3",
+			"coin_type": "0",
+			"price": "188.93",
+			"name": "eth",
+			"description": "",
+			"bc_expolorer": "",
+			"contract": "",
+			"decimals": "18",
+			"min_amount": "1",
+			"next_start": "6739398",
+			"is_active": "1",
+			"sort_id": "0"
+		}, {
+			"id": "5",
+			"chain_id": "3",
+			"coin_type": "0",
+			"price": "0.9993",
+			"name": "usdt",
+			"description": "",
+			"bc_expolorer": "",
+			"contract": "0x3551206D38A1D76C3616b8cf2A239Bc3893E4119",
+			"decimals": "6",
+			"min_amount": "1",
+			"next_start": "6739398",
+			"is_active": "1",
+			"sort_id": "0"
+		}, {
+			"id": "8",
+			"chain_id": "1",
+			"coin_type": "0",
+			"price": "9027.06",
+			"name": "btc",
+			"description": "bitcoin",
+			"bc_expolorer": "bitcoin.org",
+			"contract": "",
+			"decimals": "18",
+			"min_amount": "1",
+			"next_start": "0",
+			"is_active": "1",
+			"sort_id": "0"
+		}]
+	}
+}
 
 
 2. 获取用户资产列表

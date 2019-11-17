@@ -34,8 +34,39 @@ phone:
 sex:
 friend_moeny: -1 无法加好友，0,可申请加好友，正数为加好友价格
 class: 用户等级
+{
+    "success": true,
+	"status": 1,
+	"msg": "成功",
+	"data": {
+		"session_key": "ad1647c6e14d29b3973ca5b7c0704b5aa1b31730",
+		"user_info": {
+			"id": "7",
+			"fomo_id": "hudf_zh_fl",
+			"name": "wocao",
+			"portraitUri": "http:\/\/localhost\/martin-bk\/\/uploads\/avatar\/7_1570505849.png",
+			"email": "abc@126.com",
+			"phone": "123456789",
+			"sex": "0",
+			"last_time": "1569404712",
+			"status": "0",
+			"zip": null,
+			"province": null,
+			"city": null,
+			"address": null,
+			"country": null,
+			"group": "0",
+			"add_time": "1569404712",
+			"update_time": "1573556297",
+			"is_deleted": "0",
+			"c_type": "0",
+			"extra_attr": null,
+			"friend_money": "-1",
+			"class": "3"
+		}
+	}
+}
 
-{"status":1,"msg":"成功","data":{"session_key":"ad1647c6e14d29b3973ca5b7c0704b5aa1b31730","user_info":{"id":"7","fomo_id":"hudf_zh_fl","name":"wocao","portraitUri":"http:\/\/localhost\/martin-bk\/\/uploads\/avatar\/7_1570505849.png","email":"abc@126.com","phone":"123456789","sex":"0","last_time":"1569404712","status":"0","zip":null,"province":null,"city":null,"address":null,"country":null,"group":"0","add_time":"1569404712","update_time":"1573556297","is_deleted":"0","c_type":"0","extra_attr":null,"friend_money":"-1","class":"3"}}}
 
 
 4. 更新用户头像:
