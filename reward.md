@@ -91,7 +91,47 @@ user_id(用户id), code(用户给他人的邀请码),class(用户等级，0或1)
 返回结果：
 若成功，则返回用户自己的邀请码等信息
 
-{5.获取自己邀请的用户列表}
+5. 今日签到
+方法:	customer/sign_in_today
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+返回结果：
+成功:
+{
+	"success": true,
+	"status": 1,
+	"msg": "成功",
+	"data": {
+		"reward_id": 23
+	}
+}
+失败:
+{
+	"success": false,
+	"status": 202,
+	"msg": "今日挖矿任务已完成",
+	"data": null
+}
+
+6.获取自己邀请的用户列表
+方法: customer/get_children
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+返回:
+children,用户信息列表; count: 总的邀请人数
+{
+	"success": true,
+	"status": 1,
+	"msg": "成功",
+	"data": {
+		"children": [{
+			"user_id": "9",
+			"user_name": "物资需",
+			"portraitUri": null
+		}],
+		"count": 1
+	}
+}
 
 {6.口令}
 
