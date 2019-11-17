@@ -1,23 +1,89 @@
 
+1.获取登录用户的新手挖矿数据
+方法: customer/get_newbee_award
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+返回结果：
+奖励列表，每项包含:
+用户id, award_item(奖励项目),award_type(奖励类型)，amount(奖励金额),coin_id(奖励币种)，target_id(目标ID,如加群的目标ID就是所加入的群)
+{
+	"success": true,
+	"status": 1,
+	"msg": "成功",
+	"data": {
+		"award_logs": [{
+			"id": "22",
+			"user_id": "17",
+			"award_item": "set_fomo_id",
+			"award_type": "newbee",
+			"amount": "10.0000",
+			"coin_id": "1",
+			"target_id": "0",
+			"status": "1",
+			"create_time": "1573986332",
+			"update_time": "1573986332"
+		}]
+	}
+}
 
-
-1. 获取登录用户的每日挖矿数据
+2. 获取登录用户的每日挖矿数据
 方法: customer/get_today_award
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 返回结果：
 奖励列表，每项包含:
-用户id, award_item(奖励项目),award_type(奖励类型)，amount(奖励金额),coin_id(奖励币种)，target_id(目标ID)
+用户id, award_item(奖励项目),award_type(奖励类型)，amount(奖励金额),coin_id(奖励币种)，target_id(目标ID,如加群的目标ID就是所加入的群)
+{
+	"success": true,
+	"status": 1,
+	"msg": "成功",
+	"data": {
+		"award_logs": [{
+			"id": "19",
+			"user_id": "17",
+			"award_item": "join_group",
+			"award_type": "daily",
+			"amount": "10.0000",
+			"coin_id": "1",
+			"target_id": "19",
+			"status": "1",
+			"create_time": "1573985312",
+			"update_time": "1573985312"
+		}, {
+			"id": "20",
+			"user_id": "17",
+			"award_item": "join_group",
+			"award_type": "daily",
+			"amount": "10.0000",
+			"coin_id": "1",
+			"target_id": "19",
+			"status": "1",
+			"create_time": "1573985412",
+			"update_time": "1573985412"
+		}, {
+			"id": "21",
+			"user_id": "17",
+			"award_item": "join_group",
+			"award_type": "daily",
+			"amount": "10.0000",
+			"coin_id": "1",
+			"target_id": "19",
+			"status": "1",
+			"create_time": "1573985533",
+			"update_time": "1573985533"
+		}]
+	}
+}
 
 
-2. 获取登录用户的邀请码信息
+3. 获取登录用户的邀请码信息
 方法: customer/get_invitation
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
 返回结果：
 user_id(用户id), code(用户给他人的邀请码),class(用户等级，0或1), parent_id(用户上级id),parent_code（用户上级邀请码）
 
-3. 设置用户邀请码
+4. 设置用户邀请码
 方法: customer/set_invitation
 参数:
 1)session_key vchar(55) 必填[存在本地的用户session]
@@ -25,8 +91,8 @@ user_id(用户id), code(用户给他人的邀请码),class(用户等级，0或1)
 返回结果：
 若成功，则返回用户自己的邀请码等信息
 
-{4.获取自己邀请的用户列表}
+{5.获取自己邀请的用户列表}
 
-{5.口令}
+{6.口令}
 
-{6.预约libra}
+{7.预约libra}
