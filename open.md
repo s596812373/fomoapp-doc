@@ -14,14 +14,13 @@ http://39.108.51.7/fomo/
 1.获取认证code:
 调用方式: APP客户端调用
 方法名称:oauth2/authorize
-GET 参数:
+POST 参数:
 1) response_type=code
 2) client_id=[申请注册的appid]
 3) redirect_uri=[接入方跳转地址]
 4) state=[随机字符串]
-POST 参数:
-1)  authorized vchar(22) 必填[同意为"yes",取消为其它任意字符串]
-2)  session_key vchar(125) 必填[用户保存在安卓的session_key]
+5)  authorized vchar(22) 必填[同意为"yes",取消为其它任意字符串]
+6)  session_key vchar(125) 必填[用户保存在安卓的session_key]
 返回：
 若成功，status=1,data中的code给第三方用于下一步获取access_token
 
@@ -59,7 +58,7 @@ AUTHORIZATION : Bearer [access_token]
 2. 用户预充值:
     调用方式: 接入方客户端调用
     方法名称: oauth2/resource/pre_pay
-    GET 参数:  
+    POST 参数:  
 1)  direction=[1为用户向接入方充值，2为接入方向用户转账;这里为1]
 2)  timestamp=[当前时间戳，10分钟内有效]
 3)  sign=[签名计算公式:sha1(client_secrent+timestamp)]
@@ -81,14 +80,12 @@ AUTHORIZATION : Bearer [access_token]
 3. 确认支付：   
     调用方式: FOMO客户端调用
     方法名称: oauth2/authorize/confirm_pay
-    GET 参数:
-
+POST 参数:
 1)  redirect_uri=[必填，前端回调网址，跟注册app时填写的redirect_uri保持一致]
 2）  trade_id=[必填，接入方交易ID]
-    POST 参数:
-1）  transfer_id 必填[上一步返回的transfer_id]
-2)   wallet_pwd  必填[用户输入的支付密码] 
-3)  session_key 必填[保存在FOMOAPP客户端的session_key]
+3）  transfer_id 必填[上一步返回的transfer_id]
+4)   wallet_pwd  必填[用户输入的支付密码] 
+5)  session_key 必填[保存在FOMOAPP客户端的session_key]
 PS: 未确认交易3分钟之后会过期
     返回信息:
 1) success: true 为支付成功，false为支付失败
@@ -99,7 +96,7 @@ PS: 未确认交易3分钟之后会过期
 4. 给用户转账:
     调用方式: 接入方服务端调用
     方法名称: oauth2/authorize/pay_user
-GET 参数:  
+POST 参数:  
 1)  direction=[1为用户向接入方充值，2为接入方向用户转账;这里为2]
 2)  timestamp=[当前时间戳，10分钟内有效]
 3)  sign=[签名计算公式:sha1(client_secret+timestamp)]
