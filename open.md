@@ -41,7 +41,7 @@ POST 参数
 2) client_id :
 3) client_secret :
 4) grant_type : refresh_token,
-5) scope : userinfo
+5) scope : userinfo paytoken
 
 3. 将access_token装入请求api的头部
 AUTHORIZATION : Bearer [access_token]
