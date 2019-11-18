@@ -114,15 +114,6 @@ PS: 未确认交易3分钟之后会过期
 12) state=[随机字符串]
 13) scope=paytoken
 14) response_type=code
-15) 转账成功或失败跳转到接入方网址,携带参数:
-16) status =1,成功，其它值，失败，具体见附录错误码
-17) trade_id=[接入方交易ID]
-18) amount=[充值或转账金额]
-19) coin_id=[币种ID]
-20) user_id=[充值者在FOMO平台的user id]
-21) access_token=[前面获取的access_token]
-22) client_id=[接入方app id]
-23) state=[随机字符串]   
 
     返回信息:
 1) success: true 为支付成功，false为支付失败
