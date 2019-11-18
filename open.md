@@ -97,7 +97,7 @@ PS: 未确认交易3分钟之后会过期
 4) data: 数组。包含transfer_id: FOMOAPP平台的交易ID; trade_id: 第三方平台的交易ID; httpcode: 支付成功第一次回调第三方服务端的HTTP请求状态  
 
 4. 给用户转账:
-    调用方式: 服务端调用
+    调用方式: 接入方服务端调用
     方法名称: oauth2/authorize/pay_user
     GET 参数:  
 1)  direction=[1为用户向接入方充值，2为接入方向用户转账;这里为2]
@@ -111,25 +111,24 @@ PS: 未确认交易3分钟之后会过期
 9)  client_id=[接入方app id]
 10)  server_uri=[后端回调网址]
 11)  redirect_uri=[后端回调网址，跟注册app时填写的redirect_uri保持一致]
-12) front_uri=[前端回调网址]
-13) state=[随机字符串]
-14) scope=paytoken
-15) response_type=code
-16) 转账成功或失败跳转到接入方网址,携带参数:
-17) status =1,成功，其它值，失败，具体见附录错误码
-18) trade_id=[接入方交易ID]
-19) amount=[充值或转账金额]
-20) coin_id=[币种ID]
-21) user_id=[充值者在FOMO平台的user id]
-22) access_token=[前面获取的access_token]
-23) client_id=[接入方app id]
-24) redirect_uri=[回调网址]
-25) state=[随机字符串]   
+12) state=[随机字符串]
+13) scope=paytoken
+14) response_type=code
+15) 转账成功或失败跳转到接入方网址,携带参数:
+16) status =1,成功，其它值，失败，具体见附录错误码
+17) trade_id=[接入方交易ID]
+18) amount=[充值或转账金额]
+19) coin_id=[币种ID]
+20) user_id=[充值者在FOMO平台的user id]
+21) access_token=[前面获取的access_token]
+22) client_id=[接入方app id]
+23) state=[随机字符串]   
 
-    前端回调返回信息:
-1)  status: 状态码，请根据附录一查询对应说明
-2)  httpcode: 后端回调返回的HTTP状态
-3)  transfer_id: FOMOAPP平台的交易ID，只有在支付成功时返回
+    返回信息:
+1) success: true 为支付成功，false为支付失败
+2) status: 状态码
+3) msg: 状态说明
+4) data: 数组。包含transfer_id: FOMOAPP平台的交易ID; trade_id: 第三方平台的交易ID; httpcode: 支付成功第一次回调第三方服务端的HTTP请求状态 
 
   
 
