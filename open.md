@@ -99,7 +99,7 @@ PS: 未确认交易3分钟之后会过期
 4. 给用户转账:
     调用方式: 接入方服务端调用
     方法名称: oauth2/authorize/pay_user
-    GET 参数:  
+GET 参数:  
 1)  direction=[1为用户向接入方充值，2为接入方向用户转账;这里为2]
 2)  timestamp=[当前时间戳，10分钟内有效]
 3)  sign=[签名计算公式:sha1(client_secret+timestamp)]
@@ -113,6 +113,9 @@ PS: 未确认交易3分钟之后会过期
 11) state=[随机字符串]
 12) scope=paytoken
 13) response_type=code
+
+POST 参数:
+1)  wallet_pwd  [支付密码]
 
     返回信息:
 1) success: true 为支付成功，false为支付失败
