@@ -76,9 +76,27 @@ AUTHORIZATION : Bearer [access_token]
     返回信息:
 1） status: 状态码，详情见附录一
 2） sucess: true 成功， false 失败
-2） transfer_id: FOMOAPP平台的交易ID，只有在支付成功时返回,下一步通知安卓发起支付时需要用到
+2） transfer_id: FOMOAPP平台的交易ID，只有在支付成功时返回,
 
-3. 给用户充值:
+3. 确认支付：   
+    调用方式: FOMO客户端调用
+    方法名称: oauth2/authorize/confirm_pay
+    GET 参数:
+
+1)  redirect_uri=[必填，前端回调网址，跟注册app时填写的redirect_uri保持一致]
+2）  trade_id=[必填，接入方交易ID]
+    POST 参数:
+1）  transfer_id 必填[上一步返回的transfer_id]
+2)   wallet_pwd  必填[用户输入的支付密码] 
+3)  session_key 必填[保存在FOMOAPP客户端的session_key]
+PS: 未确认交易3分钟之后会过期
+    返回信息:
+1) success: true 为支付成功，false为支付失败
+2) status: 状态码
+3) msg: 状态说明
+4) data: 数组。包含transfer_id: FOMOAPP平台的交易ID; trade_id: 第三方平台的交易ID; httpcode: 支付成功第一次回调第三方服务端的HTTP请求状态  
+
+4. 给用户转账:
     调用方式: 服务端调用
     方法名称: oauth2/authorize/pay_user
     GET 参数:  
@@ -113,23 +131,7 @@ AUTHORIZATION : Bearer [access_token]
 2)  httpcode: 后端回调返回的HTTP状态
 3)  transfer_id: FOMOAPP平台的交易ID，只有在支付成功时返回
 
-4. 确认转账：   
-    调用方式: FOMO客户端调用
-    方法名称: oauth2/authorize/confirm_pay
-    GET 参数:
-
-1)  redirect_uri=[必填，前端回调网址，跟注册app时填写的redirect_uri保持一致]
-2）  trade_id=[必填，接入方交易ID]
-    POST 参数:
-1）  transfer_id 必填[上一步返回的transfer_id]
-2)   wallet_pwd  必填[用户输入的支付密码] 
-3)  session_key 必填[保存在FOMOAPP客户端的session_key]
-PS: 未确认交易3分钟之后会过期
-    返回信息:
-1) success: true 为支付成功，false为支付失败
-2) status: 状态码
-3) msg: 状态说明
-4) data: 数组。包含transfer_id: FOMOAPP平台的交易ID; trade_id: 第三方平台的交易ID; httpcode: 支付成功第一次回调第三方服务端的HTTP请求状态    
+  
 
 四 ： 接入方需提供的支付回调
 请求方式: POST
