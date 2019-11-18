@@ -102,15 +102,12 @@ POST 参数:
 5)  amount=[充值或转账金额]
 6)  coin_id=[币种ID]
 7)  user_id=[充值者在FOMO平台的user id]
-8)  access_token=[前面获取的access_token]
-9)  client_id=[接入方app id]
-10)  server_uri=[后端回调网址]
-11) state=[随机字符串]
-12) scope=paytoken
-13) response_type=code
-
-POST 参数:
-1)  wallet_pwd  [支付密码]
+8)  client_id=[接入方app id]
+9)  server_uri=[后端回调网址]
+10) state=[随机字符串]
+11) scope=paytoken
+12) response_type=code
+13)  wallet_pwd  [支付密码]
 
     返回信息:
 1) success: true 为支付成功，false为支付失败
