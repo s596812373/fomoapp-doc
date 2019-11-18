@@ -26,8 +26,7 @@ POST 参数:
 
 2. 用获取的code获取access_token和refresh_token
 调用方式: 接入方客户端调用
-方法名称: /oauth2/authorize/token
-
+方法名称: oauth2/authorize/token
 POST 参数:
 1)code: [上步获取的code],
 2)client_id: [app id],
@@ -81,11 +80,10 @@ AUTHORIZATION : Bearer [access_token]
     调用方式: FOMO客户端调用
     方法名称: oauth2/authorize/confirm_pay
 POST 参数:
-1)  redirect_uri=[必填，前端回调网址，跟注册app时填写的redirect_uri保持一致]
-2）  trade_id=[必填，接入方交易ID]
-3）  transfer_id 必填[上一步返回的transfer_id]
-4)   wallet_pwd  必填[用户输入的支付密码] 
-5)  session_key 必填[保存在FOMOAPP客户端的session_key]
+1）  trade_id=[必填，接入方交易ID]
+2）  transfer_id 必填[上一步返回的transfer_id]
+3)   wallet_pwd  必填[用户输入的支付密码] 
+4)  session_key 必填[保存在FOMOAPP客户端的session_key]
 PS: 未确认交易3分钟之后会过期
     返回信息:
 1) success: true 为支付成功，false为支付失败
