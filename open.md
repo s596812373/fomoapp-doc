@@ -110,10 +110,9 @@ PS: 未确认交易3分钟之后会过期
 8)  access_token=[前面获取的access_token]
 9)  client_id=[接入方app id]
 10)  server_uri=[后端回调网址]
-11)  redirect_uri=[后端回调网址，跟注册app时填写的redirect_uri保持一致]
-12) state=[随机字符串]
-13) scope=paytoken
-14) response_type=code
+11) state=[随机字符串]
+12) scope=paytoken
+13) response_type=code
 
     返回信息:
 1) success: true 为支付成功，false为支付失败
