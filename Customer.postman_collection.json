@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "82935427-a3f5-4b8c-b1dd-51e7e0ee36d3",
+		"name": "Customer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "注册第一步",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_name",
+							"value": "wmy_bang@126.com",
+							"description": "手机号或者邮箱",
+							"type": "text"
+						},
+						{
+							"key": "pwd",
+							"value": "123456789",
+							"description": "密码",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/customer/register",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"customer",
+						"register"
+					]
+				},
+				"description": "注册第一步"
+			},
+			"response": []
+		},
+		{
+			"name": "完成注册",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "verify_code",
+							"value": "2565",
+							"description": "用户输入的验证码",
+							"type": "text"
+						},
+						{
+							"key": "verify_id",
+							"value": "30",
+							"description": "上一步生成的verify_id",
+							"type": "text"
+						},
+						{
+							"key": "tmp_user_id",
+							"value": "9",
+							"description": "上一步生成的tmp_user_id",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/customer/complete_register",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"customer",
+						"complete_register"
+					]
+				},
+				"description": "完成注册"
+			},
+			"response": []
+		},
+		{
+			"name": "用户登录",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "login_name",
+							"value": "wmy_bang@126.com",
+							"description": "手机号或者邮箱",
+							"type": "text"
+						},
+						{
+							"key": "pwd",
+							"value": "123456789",
+							"description": "登录密码",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/customer/login",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"customer",
+						"login"
+					]
+				},
+				"description": "用户登录"
+			},
+			"response": []
+		},
+		{
+			"name": "密码相关发送验证码第一步",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_name",
+							"value": "qian.walstonn@qq.com",
+							"description": "手机号或者邮箱",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/customer/rec_pwd1",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"customer",
+						"rec_pwd1"
+					]
+				},
+				"description": "密码相关发送验证码第一步"
+			},
+			"response": []
+		},
+		{
+			"name": "密码相关验证码第二步",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "verify_id",
+							"value": "25",
+							"description": "上一步生成的verify_id",
+							"type": "text"
+						},
+						{
+							"key": "verify_code",
+							"value": "7272",
+							"description": "用户收到的验证码",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "24",
+							"description": "上一步生成的user_id",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/customer/rec_pwd2",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"customer",
+						"rec_pwd2"
+					]
+				},
+				"description": "密码相关验证码第二步"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
