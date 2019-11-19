@@ -177,7 +177,19 @@ word_info 口令信息，award_value 用户领取的金额
     }
 }
 
-
-{8.预约libra}
+8. 查询libra预约人数
+方法: customer/subscribe_counts
+参数:
+无
+返回:
+num 为libra预约人数
+{
+    "success": true,
+    "status": 1,
+    "msg": "成功",
+    "data": {
+        "num": 3
+    }
+}
 
 {9.持币分红}
