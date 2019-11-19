@@ -147,6 +147,37 @@ children,用户信息列表; count: 总的邀请人数
 	}
 }
 
-{6.口令}
+7.提交口令
+方法: customer/submit_word
+参数:
+1)session_key vchar(55) 必填[存在本地的用户session]
+2)word		  vchar(12) 必填[口令]
+返回:
+word_info 口令信息，award_value 用户领取的金额
+[PS:需要解决公平分配问题，目前是越在前面抢到的大金额概率越大]
+{
+    "success": true,
+    "status": 1,
+    "msg": "成功",
+    "data": {
+        "word_info": {
+            "id": "2",
+            "word": "GH78",
+            "amount": "134.0000",
+            "coin_id": "5",
+            "max_count": "5",
+            "used_count": "0",
+            "used_amount": "0.0000",
+            "status": "1",
+            "expired": "1574139202",
+            "update_time": "1574139202",
+            "create_time": "1574139202"
+        },
+        "award_value": 115.2544
+    }
+}
 
-{7.预约libra}
+
+{8.预约libra}
+
+{9.持币分红}
