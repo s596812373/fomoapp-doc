@@ -136,7 +136,7 @@ status          1为支付成功，0为支付失败
 2.回调失败后会有重试
 3.返回200HTTP状态码即为回调成功，若不成功每10分钟发起一次回调，超过100次则不再发起
 
-
+附录一：错误码
     0   =>  "参数不足",
     1   =>  "成功",
     2   =>  "用户未登录",
@@ -209,6 +209,88 @@ status          1为支付成功，0为支付失败
     211 =>  "接入方交易ID trade_id重复",
     212 =>  "交易ID transfer_id 不存在",
     213 =>  "交易过期",
+
+附录二：获取可用币种信息
+方法: base_url+wallet/get_active_coins
+参数: 无
+返回: 币种信息在active_coins
+id: 币ID
+chain_id: 币所在的链ID
+coin_type: 币的类型,默认为0
+price: 币的实时价格
+name: 币名称
+description: 币简介
+bc_explorer: 区块链浏览器地址
+decimals: 精度
+min_amount: 归集门槛
+next_start: 充值扫描下一次起始区块
+is_active: 是否可用
+sort_id: 排序权重
+
+{
+    "success": true,
+	"status": 1,
+	"msg": "成功",
+	"data": {
+		"active_coins": [{
+			"id": "1",
+			"chain_id": "3",
+			"coin_type": "0",
+			"price": "0.1",
+			"name": "vnt",
+			"description": "",
+			"bc_expolorer": "",
+			"contract": "",
+			"decimals": "8",
+			"min_amount": "1",
+			"next_start": "0",
+			"is_active": "1",
+			"sort_id": "0"
+		}, {
+			"id": "3",
+			"chain_id": "3",
+			"coin_type": "0",
+			"price": "188.93",
+			"name": "eth",
+			"description": "",
+			"bc_expolorer": "",
+			"contract": "",
+			"decimals": "18",
+			"min_amount": "1",
+			"next_start": "6739398",
+			"is_active": "1",
+			"sort_id": "0"
+		}, {
+			"id": "5",
+			"chain_id": "3",
+			"coin_type": "0",
+			"price": "0.9993",
+			"name": "usdt",
+			"description": "",
+			"bc_expolorer": "",
+			"contract": "0x3551206D38A1D76C3616b8cf2A239Bc3893E4119",
+			"decimals": "6",
+			"min_amount": "1",
+			"next_start": "6739398",
+			"is_active": "1",
+			"sort_id": "0"
+		}, {
+			"id": "8",
+			"chain_id": "1",
+			"coin_type": "0",
+			"price": "9027.06",
+			"name": "btc",
+			"description": "bitcoin",
+			"bc_expolorer": "bitcoin.org",
+			"contract": "",
+			"decimals": "18",
+			"min_amount": "1",
+			"next_start": "0",
+			"is_active": "1",
+			"sort_id": "0"
+		}]
+	}
+}    
 
 
 

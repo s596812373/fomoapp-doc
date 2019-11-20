@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "7e503840-44af-474d-8533-df74ce78501d",
+		"name": "Reward",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "用户提交口令彩蛋",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "cb3daf39721809363240765a7f1ce29f72521701",
+							"description": "保存本地的用户登录凭证",
+							"type": "text"
+						},
+						{
+							"key": "word",
+							"value": "GH78",
+							"description": "口令彩蛋",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/customer/submit_word",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"customer",
+						"submit_word"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取libra预约人数",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/customer/subscribe_counts",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"customer",
+						"subscribe_counts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

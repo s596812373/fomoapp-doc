@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "91b3f3ba-ed9d-4fcc-ada9-1c3486810eed",
+		"name": "Wallet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "获取用户单个币种财务记录",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "ad1647c6e14d29b3973ca5b7c0704b5aa1b31730",
+							"type": "text"
+						},
+						{
+							"key": "coin_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/wallet/coins_record",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"wallet",
+						"coins_record"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取用户资产列表",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "ad1647c6e14d29b3973ca5b7c0704b5aa1b31730",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/wallet/get_user_coins",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"wallet",
+						"get_user_coins"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

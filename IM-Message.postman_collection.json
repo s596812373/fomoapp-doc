@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "7f14915a-508d-4395-b523-2dfcd96cf410",
+		"name": "IM-Message",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "发送红包或者转账",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "ad1647c6e14d29b3973ca5b7c0704b5aa1b31730",
+							"description": "客户端用户凭证",
+							"type": "text"
+						},
+						{
+							"key": "toUserId",
+							"value": "8",
+							"description": "目的用户ID",
+							"type": "text"
+						},
+						{
+							"key": "coin_id",
+							"value": "5",
+							"description": "转账的币ID",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "3.69",
+							"description": "转账的币金额",
+							"type": "text"
+						},
+						{
+							"key": "wallet_pwd",
+							"value": "123456",
+							"description": "用户资金密码",
+							"type": "text"
+						},
+						{
+							"key": "wrap",
+							"value": "1",
+							"description": "1为红包，2为转账",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "生日快乐",
+							"description": "备注",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/im/msg_redpack_publish",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"im",
+						"msg_redpack_publish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "接受红包或者转账",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "37dc4b9b006b53792faa09a56b2b7937a071dfe5",
+							"description": "客户端用户登录凭证",
+							"type": "text"
+						},
+						{
+							"key": "transfer_id",
+							"value": "58",
+							"description": "交易ID",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/im/msg_redpack_accept",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"im",
+						"msg_redpack_accept"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "发送兑换",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "ad1647c6e14d29b3973ca5b7c0704b5aa1b31730",
+							"description": "客户端存的用户登录凭证",
+							"type": "text"
+						},
+						{
+							"key": "from_coin_id",
+							"value": "5",
+							"description": "兑换源币ID",
+							"type": "text"
+						},
+						{
+							"key": "from_coin_amount",
+							"value": "183",
+							"description": "兑换源币金额",
+							"type": "text"
+						},
+						{
+							"key": "toUserId",
+							"value": "8",
+							"description": "兑换目的用户ID",
+							"type": "text"
+						},
+						{
+							"key": "to_coin_id",
+							"value": "3",
+							"description": "兑换目的币ID",
+							"type": "text"
+						},
+						{
+							"key": "to_coin_amount",
+							"value": "1",
+							"description": "兑换目的币金额",
+							"type": "text"
+						},
+						{
+							"key": "wallet_pwd",
+							"value": "123456",
+							"description": "兑换源用户资金密码",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "拿183个USDT兑换一个ETH",
+							"description": "兑换备注",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/im/msg_exchange_publish",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"im",
+						"msg_exchange_publish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "领取兑换",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "37dc4b9b006b53792faa09a56b2b7937a071dfe5",
+							"description": "领取兑换者存于客户端的凭证",
+							"type": "text"
+						},
+						{
+							"key": "exchange_id",
+							"value": "4",
+							"description": "兑换ID",
+							"type": "text"
+						},
+						{
+							"key": "wallet_pwd",
+							"value": "12345678",
+							"description": "领取兑换者的资金密码",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/im/msg_exchange_accept",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"im",
+						"msg_exchange_accept"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

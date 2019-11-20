@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "3bedae27-2d4b-45c9-be7b-516b8762c78f",
+		"name": "Group",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "用户加群",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "5c5135b2eaab7085de6a37509b065ce1059325dc",
+							"type": "text"
+						},
+						{
+							"key": "group_id",
+							"value": "19",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/im/group_join",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"im",
+						"group_join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "群管理员通过或者拒绝用户加群申请",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "37dc4b9b006b53792faa09a56b2b7937a071dfe5",
+							"type": "text"
+						},
+						{
+							"key": "group_id",
+							"value": "19",
+							"type": "text"
+						},
+						{
+							"key": "pre_user",
+							"value": "24",
+							"type": "text"
+						},
+						{
+							"key": "action",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/im/group_react_join",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"im",
+						"group_react_join"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
