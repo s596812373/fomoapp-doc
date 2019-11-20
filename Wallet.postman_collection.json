@@ -81,6 +81,92 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "获取用户算力以及24小时最低FOMO和TT持币信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "cb3daf39721809363240765a7f1ce29f72521701",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/wallet/get_power",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"wallet",
+						"get_power"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取用户最近的5个充币地址",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "cb3daf39721809363240765a7f1ce29f72521701",
+							"type": "text"
+						},
+						{
+							"key": "chain_id",
+							"value": "3",
+							"description": "所充值币种的链ID",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/wallet/history_address",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"wallet",
+						"history_address"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
