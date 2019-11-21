@@ -159,17 +159,32 @@ data 的 total_cny为所有资产折合成人民币的数量
 status=1 成功，0参数不足,2用户未登录，status=21不支持该币种，status=22无法分配地址
 data 为 返回的充值地址
 
-4. 提交提现申请
-方法: wallet/withdraw
+4. 提交提现申请第一步
+方法: wallet/pre_withdraw
 参数:
 1) session_key vchar(55) 必填；
 2) coin_id int(6)	[币ID]必填；
 3) amount int       [提现数量]必填;
 4) to     vchar(125)  [提现到地址]必填;
-返回(json格式)
-status=1 成功，0参数不足,2用户未登录，23不存在的币，24余额不足
+返回
+withdraw_id,下一步发送验证码需要用到
 
-5. 获取用户单个币种的所有财务记录
+5. 提现第二步，发送验证码
+方法: wallet/send_withdraw_verify
+参数:
+1) session_key vchar(55) 必填；
+2）user_name   vchar(125) 必填[发送验证码的手机号或者邮箱];
+3)withdraw_id   int     必填[上一步收到的withdraw_id];
+返回： 只有状态，成功集进入第三步
+
+6.提现第三步，输入资金密码和验证码并提交
+方法: wallet/submit_withdraw
+参数:
+1) session_key vchar(55) 必填；
+2）verify_code   vchar(12) 必填[用户输入的验证码];
+3) withdraw_id   int     必填[第一步收到的withdraw_id];
+
+7. 获取用户单个币种的所有财务记录
 方法: wallet/coins_record
 参数:
 1) session_key vchar(55) 必填；
@@ -212,7 +227,7 @@ tx_scene 表示财务交易场景,deposit充值，withdraw提现，red_packet且
     }
 }
 
-6. 获取用户算力以及24小时最低FOMO和TT持币信息
+8. 获取用户算力以及24小时最低FOMO和TT持币信息
 方法: wallet/get_power
 1) session_key vchar(55) 必填；
 返回:
@@ -228,7 +243,7 @@ tx_scene 表示财务交易场景,deposit充值，withdraw提现，red_packet且
     }
 }
 
-7. 获取用户最近的5个充币地址
+9. 获取用户最近的5个充币地址
 方法: wallet/history_address
 1) session_key vchar(55) 必填；
 2) chain_id int(6)	[币的链ID]必填；
@@ -244,4 +259,16 @@ tx_scene 表示财务交易场景,deposit充值，withdraw提现，red_packet且
             "0xa85f9db15e8b5562895eba39493acfb39c86c113"
         ]
     }
+}
+
+10. 删除用户历史提币地址
+方法: wallet/del_address
+1) session_key vchar(55) 必填；
+2) address vchar(125)	必填[要删除的地址]；
+返回:
+{
+    "success": true,
+    "status": 1,
+    "msg": "成功",
+    "data": null
 }
