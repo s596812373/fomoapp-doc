@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "efbcdfcc-c680-43cc-9cbb-90f4bc4448da",
+		"name": "Game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "增加新游戏",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "f28188fa92bf322ddbd854c864f6dfbd96819766",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "gift2.win",
+							"description": "必填，接入方app id",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://gift2.win/back.php",
+							"description": "必填，接入方跳转链接",
+							"type": "text"
+						},
+						{
+							"key": "app_name",
+							"value": "迎着通吃",
+							"description": "选填，游戏名称",
+							"type": "text"
+						},
+						{
+							"key": "logo",
+							"value": "http://47.75.164.117/static/index/images/yzm.png",
+							"description": "选填，游戏logo的链接",
+							"type": "text"
+						},
+						{
+							"key": "game_url",
+							"value": "http://gift2.win",
+							"description": "选填，游戏入口链接",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "迎着通吃，不宜儿科",
+							"description": "选填，游戏描述",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/game/new",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"game",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新游戏",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "f28188fa92bf322ddbd854c864f6dfbd96819766",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "gift2.win",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://gift2.win/back.php",
+							"type": "text"
+						},
+						{
+							"key": "app_name",
+							"value": "生化危机",
+							"type": "text"
+						},
+						{
+							"key": "logo",
+							"value": "http://localhost:8080/static/index/images/yzm.png",
+							"type": "text"
+						},
+						{
+							"key": "game_url",
+							"value": "http://gift2.win123",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "生化危机，世界末日",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://39.108.51.7/fomo/game/update",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"game",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "搜索游戏",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "search_words",
+							"value": "i",
+							"description": "搜索关键词",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/game/search",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"game",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "游戏列表(最新，推荐，热门)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "sort_type",
+							"value": "3",
+							"description": "1最新，2推荐，3热门",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/game/list",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"game",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

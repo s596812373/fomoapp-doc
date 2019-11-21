@@ -27,12 +27,12 @@
 						},
 						{
 							"key": "client_id",
-							"value": "gift.win",
+							"value": "wen_jing",
 							"type": "text"
 						},
 						{
 							"key": "redirect_uri",
-							"value": "http://localhost/openfomo/back.php",
+							"value": "wenjing.com/back.php",
 							"type": "text"
 						},
 						{
@@ -47,16 +47,19 @@
 						},
 						{
 							"key": "session_key",
-							"value": "270d74f39a19a3321b3225b2470606f6175f0980",
+							"value": "cb3daf39721809363240765a7f1ce29f72521701",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost/fomo/oauth2/authorize",
+					"raw": "http://39.108.51.7/fomo/oauth2/authorize",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"39",
+						"108",
+						"51",
+						"7"
 					],
 					"path": [
 						"fomo",
@@ -85,17 +88,17 @@
 					"urlencoded": [
 						{
 							"key": "code",
-							"value": "4f15172b9c765fa01c0ca9be7433c3f023d85ad8",
+							"value": "c82be0eb90540c07d463c12f662e0b7a920b857c",
 							"type": "text"
 						},
 						{
 							"key": "client_id",
-							"value": "gift.win",
+							"value": "wen_jing",
 							"type": "text"
 						},
 						{
 							"key": "client_secret",
-							"value": "9bd468ebf7045a51ec06718de36273b5563652e7",
+							"value": "d1301e2dac45eaa8cbb2610e0ce51f1665792635",
 							"type": "text"
 						},
 						{
@@ -105,16 +108,19 @@
 						},
 						{
 							"key": "redirect_uri",
-							"value": "http://localhost/openfomo/back.php",
+							"value": "wenjing.com/back.php",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost/fomo/oauth2/authorize/token",
+					"raw": "http://39.108.51.7/fomo/oauth2/authorize/token",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"39",
+						"108",
+						"51",
+						"7"
 					],
 					"path": [
 						"fomo",
@@ -135,7 +141,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "b0fb5cb0b9cca4b460efba819e13db3b4559ad18",
+							"value": "b9a1368f95bbd044e5868ac07291ee7af9b49c97",
 							"type": "string"
 						}
 					]
@@ -169,7 +175,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "d13a4256a84279a0293bfcdf4dcb43479145f39b",
+							"value": "b9a1368f95bbd044e5868ac07291ee7af9b49c97",
 							"type": "string"
 						}
 					]
@@ -199,22 +205,22 @@
 						},
 						{
 							"key": "timestamp",
-							"value": "1574232110",
+							"value": "1574334902",
 							"type": "text"
 						},
 						{
 							"key": "sign",
-							"value": "0836d45244794e9d48e0981fd5de78049e58a42f",
+							"value": "43e166af29cecad845a7a9c9ef4461a9339b2781",
 							"type": "text"
 						},
 						{
 							"key": "trade_id",
-							"value": "DG10013",
+							"value": "DG10099",
 							"type": "text"
 						},
 						{
 							"key": "amount",
-							"value": "2.6",
+							"value": "1.46",
 							"type": "text"
 						},
 						{
@@ -224,7 +230,7 @@
 						},
 						{
 							"key": "client_id",
-							"value": "gift.win",
+							"value": "wen_jing",
 							"type": "text"
 						},
 						{
@@ -234,7 +240,7 @@
 						},
 						{
 							"key": "redirect_uri",
-							"value": "http://localhost/openfomo/back.php",
+							"value": "wenjing.com/back.php",
 							"type": "text"
 						},
 						{
@@ -255,10 +261,13 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost/fomo/oauth2/resource/pre_pay",
+					"raw": "http://39.108.51.7/fomo/oauth2/resource/pre_pay",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"39",
+						"108",
+						"51",
+						"7"
 					],
 					"path": [
 						"fomo",
@@ -288,12 +297,12 @@
 					"urlencoded": [
 						{
 							"key": "trade_id",
-							"value": "DG10013",
+							"value": "DG10099",
 							"type": "text"
 						},
 						{
 							"key": "transfer_id",
-							"value": "59",
+							"value": "75",
 							"type": "text"
 						},
 						{
@@ -303,16 +312,19 @@
 						},
 						{
 							"key": "session_key",
-							"value": "270d74f39a19a3321b3225b2470606f6175f0980",
+							"value": "cb3daf39721809363240765a7f1ce29f72521701",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost/fomo/oauth2/authorize/confirm_pay",
+					"raw": "http://39.108.51.7/fomo/oauth2/authorize/confirm_pay",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"39",
+						"108",
+						"51",
+						"7"
 					],
 					"path": [
 						"fomo",
