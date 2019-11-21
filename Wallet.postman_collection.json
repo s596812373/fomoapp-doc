@@ -139,7 +139,7 @@
 					"urlencoded": [
 						{
 							"key": "session_key",
-							"value": "cb3daf39721809363240765a7f1ce29f72521701",
+							"value": "ad1647c6e14d29b3973ca5b7c0704b5aa1b31730",
 							"type": "text"
 						},
 						{
@@ -151,18 +151,205 @@
 					]
 				},
 				"url": {
-					"raw": "http://39.108.51.7/fomo/wallet/history_address",
+					"raw": "http://localhost/fomo/wallet/history_address",
 					"protocol": "http",
 					"host": [
-						"39",
-						"108",
-						"51",
-						"7"
+						"localhost"
 					],
 					"path": [
 						"fomo",
 						"wallet",
 						"history_address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除历史提币地址",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "ad1647c6e14d29b3973ca5b7c0704b5aa1b31730",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "0x343432ldf344324324234324234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/fomo/wallet/del_address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"wallet",
+						"del_address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "提现申请第一步",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "37dc4b9b006b53792faa09a56b2b7937a071dfe5",
+							"type": "text"
+						},
+						{
+							"key": "coin_id",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "100000",
+							"type": "text"
+						},
+						{
+							"key": "to",
+							"value": "0x627306090abaB3A6e1400e9345bC60c78a8BEf57",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/wallet/pre_withdraw",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"wallet",
+						"pre_withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "提现第二步，发送验证码",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "37dc4b9b006b53792faa09a56b2b7937a071dfe5",
+							"type": "text"
+						},
+						{
+							"key": "user_name",
+							"value": "17727532092",
+							"type": "text"
+						},
+						{
+							"key": "withdraw_id",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/wallet/send_withdraw_verify",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"wallet",
+						"send_withdraw_verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "提现第三步，输入资金密码和验证码并提交",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "session_key",
+							"value": "37dc4b9b006b53792faa09a56b2b7937a071dfe5",
+							"type": "text"
+						},
+						{
+							"key": "verify_code",
+							"value": "5169",
+							"type": "text"
+						},
+						{
+							"key": "wallet_pwd",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "withdraw_id",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/fomo/wallet/submit_withdraw",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"fomo",
+						"wallet",
+						"submit_withdraw"
 					]
 				}
 			},
