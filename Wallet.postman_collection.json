@@ -224,7 +224,7 @@
 					"urlencoded": [
 						{
 							"key": "session_key",
-							"value": "37dc4b9b006b53792faa09a56b2b7937a071dfe5",
+							"value": "73a3768e4fdc7ccb712cbba916bd97086476db83",
 							"type": "text"
 						},
 						{
@@ -245,9 +245,13 @@
 					]
 				},
 				"url": {
-					"raw": "localhost/fomo/wallet/pre_withdraw",
+					"raw": "http://39.108.51.7/fomo/wallet/pre_withdraw",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"39",
+						"108",
+						"51",
+						"7"
 					],
 					"path": [
 						"fomo",
@@ -275,7 +279,7 @@
 					"urlencoded": [
 						{
 							"key": "session_key",
-							"value": "37dc4b9b006b53792faa09a56b2b7937a071dfe5",
+							"value": "73a3768e4fdc7ccb712cbba916bd97086476db83",
 							"type": "text"
 						},
 						{
@@ -285,15 +289,19 @@
 						},
 						{
 							"key": "withdraw_id",
-							"value": "6",
+							"value": "9",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost/fomo/wallet/send_withdraw_verify",
+					"raw": "http://39.108.51.7/fomo/wallet/send_withdraw_verify",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"39",
+						"108",
+						"51",
+						"7"
 					],
 					"path": [
 						"fomo",
@@ -321,12 +329,12 @@
 					"urlencoded": [
 						{
 							"key": "session_key",
-							"value": "37dc4b9b006b53792faa09a56b2b7937a071dfe5",
+							"value": "73a3768e4fdc7ccb712cbba916bd97086476db83",
 							"type": "text"
 						},
 						{
 							"key": "verify_code",
-							"value": "5169",
+							"value": "8676",
 							"type": "text"
 						},
 						{
@@ -336,15 +344,19 @@
 						},
 						{
 							"key": "withdraw_id",
-							"value": "6",
+							"value": "9",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost/fomo/wallet/submit_withdraw",
+					"raw": "http://39.108.51.7/fomo/wallet/submit_withdraw",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"39",
+						"108",
+						"51",
+						"7"
 					],
 					"path": [
 						"fomo",
