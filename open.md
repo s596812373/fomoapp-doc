@@ -33,7 +33,7 @@ POST 参数:
 3)client_secret: [app secret],
 4)grant_type: [填authorization_code],
 5)redirect_uri=[接入方跳转地址]
-PS： 返回的refresh_token的失效时间要比access_token的失效时间多72小时
+PS： access_token有效期1小时，refresh_token大约2周
 
 4.刷新token
 方法名称: /oauth2/RefreshToken
