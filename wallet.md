@@ -11,73 +11,71 @@ description: 币简介
 bc_explorer: 区块链浏览器地址
 decimals: 精度
 min_amount: 归集门槛
+min_withdraw: 最低提币额
+withdraw_cut: 提币手续费
 next_start: 充值扫描下一次起始区块
 is_active: 是否可用
 sort_id: 排序权重
 
 {
     "success": true,
-	"status": 1,
-	"msg": "成功",
-	"data": {
-		"active_coins": [{
-			"id": "1",
-			"chain_id": "3",
-			"coin_type": "0",
-			"price": "0.1",
-			"name": "vnt",
-			"description": "",
-			"bc_expolorer": "",
-			"contract": "",
-			"decimals": "8",
-			"min_amount": "1",
-			"next_start": "0",
-			"is_active": "1",
-			"sort_id": "0"
-		}, {
-			"id": "3",
-			"chain_id": "3",
-			"coin_type": "0",
-			"price": "188.93",
-			"name": "eth",
-			"description": "",
-			"bc_expolorer": "",
-			"contract": "",
-			"decimals": "18",
-			"min_amount": "1",
-			"next_start": "6739398",
-			"is_active": "1",
-			"sort_id": "0"
-		}, {
-			"id": "5",
-			"chain_id": "3",
-			"coin_type": "0",
-			"price": "0.9993",
-			"name": "usdt",
-			"description": "",
-			"bc_expolorer": "",
-			"contract": "0x3551206D38A1D76C3616b8cf2A239Bc3893E4119",
-			"decimals": "6",
-			"min_amount": "1",
-			"next_start": "6739398",
-			"is_active": "1",
-			"sort_id": "0"
-		}, {
-			"id": "8",
-			"chain_id": "1",
-			"coin_type": "0",
-			"price": "9027.06",
-			"name": "btc",
-			"description": "bitcoin",
-			"bc_expolorer": "bitcoin.org",
-			"contract": "",
-			"decimals": "18",
-			"min_amount": "1",
-			"next_start": "0",
-			"is_active": "1",
-			"sort_id": "0"
-		}]
-	}
+    "status": 1,
+    "msg": "成功",
+    "data": {
+        "active_coins": [
+            {
+                "id": "3",
+                "chain_id": "3",
+                "coin_type": "0",
+                "price": "159.56",
+                "name": "eth",
+                "description": "",
+                "bc_expolorer": "",
+                "contract": "",
+                "decimals": "18",
+                "min_amount": "0.0000",
+                "min_withdraw": "0.0000",
+                "withdraw_cut": "0.0000",
+                "next_start": "6739472",
+                "is_active": "1",
+                "sort_id": "0"
+            },
+            {
+                "id": "5",
+                "chain_id": "3",
+                "coin_type": "0",
+                "price": "0.999",
+                "name": "usdt",
+                "description": "",
+                "bc_expolorer": "",
+                "contract": "0x3551206D38A1D76C3616b8cf2A239Bc3893E4119",
+                "decimals": "6",
+                "min_amount": "1.0000",
+                "min_withdraw": "10.0000",
+                "withdraw_cut": "10.0000",
+                "next_start": "6739393",
+                "is_active": "1",
+                "sort_id": "0"
+            },
+            {
+                "id": "8",
+                "chain_id": "1",
+                "coin_type": "0",
+                "price": "7573.22",
+                "name": "btc",
+                "description": "bitcoin",
+                "bc_expolorer": "bitcoin.org",
+                "contract": "",
+                "decimals": "18",
+                "min_amount": "1.0000",
+                "min_withdraw": "0.0000",
+                "withdraw_cut": "0.0000",
+                "next_start": "0",
+                "is_active": "1",
+                "sort_id": "0"
+            }
+        ]
+    }
 }
 
 
@@ -160,7 +158,6 @@ status=1 成功，0参数不足,2用户未登录，status=21不支持该币种�
 data 为 返回的充值地址
 
 
-{需要加入提现手续费}
 4.提现申请第一步
 方法: wallet/pre_withdraw
 参数:
@@ -186,6 +183,16 @@ withdraw_id,下一步发送验证码需要用到
 2）verify_code   vchar(12) 必填[用户输入的验证码];
 3) wallet_pwd   vchar(55)   必填[资金密码];
 4) withdraw_id   int     必填[第一步收到的withdraw_id];
+返回:
+actual_amount 为实际导致金额
+{
+    "success": true,
+    "status": 1,
+    "msg": "成功",
+    "data": {
+        "actual_amount": "3.0000"
+    }
+}
 
 7. 获取用户单个币种的所有财务记录
 方法: wallet/coins_record

@@ -6,6 +6,29 @@
 	},
 	"item": [
 		{
+			"name": "获取可用币信息列表",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://39.108.51.7/fomo/wallet/get_active_coins",
+					"protocol": "http",
+					"host": [
+						"39",
+						"108",
+						"51",
+						"7"
+					],
+					"path": [
+						"fomo",
+						"wallet",
+						"get_active_coins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "获取用户单个币种财务记录",
 			"request": {
 				"method": "POST",
@@ -234,7 +257,7 @@
 						},
 						{
 							"key": "amount",
-							"value": "100000",
+							"value": "13",
 							"type": "text"
 						},
 						{
@@ -289,7 +312,7 @@
 						},
 						{
 							"key": "withdraw_id",
-							"value": "9",
+							"value": "11",
 							"type": "text"
 						}
 					]
@@ -334,7 +357,7 @@
 						},
 						{
 							"key": "verify_code",
-							"value": "8676",
+							"value": "6296",
 							"type": "text"
 						},
 						{
@@ -344,7 +367,7 @@
 						},
 						{
 							"key": "withdraw_id",
-							"value": "9",
+							"value": "11",
 							"type": "text"
 						}
 					]
