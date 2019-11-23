@@ -90,10 +90,10 @@ PS: 未确认交易3分钟之后会过期
 1) success: true 为支付成功，false为支付失败
 2) status: 状态码
 3) msg: 状态说明
-4) data: 数组。包含transfer_id: FOMOAPP平台的交易ID; trade_id: 第三方平台的交易ID; httpcode: 支付成功第一次回调第三方服务端的HTTP请求状态  
+4) data: 数组。包含transfer_id: FOMOAPP平台的交易ID; trade_id: 第三方平台的交易ID; 
 
 4. 给用户转账:
-    调用方式: 接入方服务端调用
+    调用方式: 接入方服务端调用(不需要将access_token放入auth头部)
     方法名称: oauth2/authorize/pay_user
 POST 参数:  
 1)  direction=[1为用户向接入方充值，2为接入方向用户转账;这里为2]
