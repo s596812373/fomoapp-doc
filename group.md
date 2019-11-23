@@ -14,24 +14,24 @@ MSG:join_group
 2)user_list vchar(125) 必填[邀请加入群组的用户id列表，用逗号隔开，如："7,8,15"]
 3)group_name vchar(255) 选填[群组名称]
 4)memo vchar(255) 选填[群组备注]
-5)logo  选填[base64格式的群图标图片]
 返回(json格式):
 若成功，则返回group_id,group 信息和logo
 {
-	"success": true,
-	"status": 1,
-	"msg": "成功",
-	"data": {
-		"group_id": 20,
-		"group_info": {
-			"creator": "8",
-			"name": "nima,wocao,物资需,溜溜小公司,明天公司",
-			"memo": "",
-			"status": 1,
-			"update_time": 1573978350,
-			"create_time": 1573978350
-		}
-	}
+    "success": true,
+    "status": 1,
+    "msg": "成功",
+    "data": {
+        "group_id": 28,
+        "group_info": {
+            "creator": "9",
+            "name": "物资需,wocao,nima,溜溜小公司",
+            "memo": "",
+            "status": 1,
+            "update_time": 1574520403,
+            "create_time": 1574520403,
+            "logo": "http://localhost/fomo//uploads/group/fomo-group-20191123224644618.jpg"
+        }
+    }
 }
 
 

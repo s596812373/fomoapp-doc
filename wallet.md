@@ -89,11 +89,12 @@ data 的user_coins 列表，包含:
 1)coin_id [币ID]；
 2)chain_id [链ID];
 3)coin_name [币名称];
-4)price	[资产价格];
-5)balance	[总余额];
-6)frozen	[冻结金额];
-7)available	[可用余额];
-8)available_cny [可用余额折合成人民币]
+4)logo      [币logo]
+5)price	[资产价格];
+6)balance	[总余额];
+7)frozen	[冻结金额];
+8)available	[可用余额];
+9)available_cny [可用余额折合成人民币]
 data 的 total_btc为所有资产折合成BTC的数量
 data 的 total_cny为所有资产折合成人民币的数量
 {
@@ -103,19 +104,10 @@ data 的 total_cny为所有资产折合成人民币的数量
     "data": {
         "user_coins": [
             {
-                "coin_id": "1",
-                "chain_id": "3",
-                "coin_name": "fomo",
-                "price": 0.1,
-                "balance": "950.0000",
-                "frozen": "0.0000",
-                "available": 950,
-                "available_cny": 665
-            },
-            {
                 "coin_id": "3",
                 "chain_id": "3",
                 "coin_name": "eth",
+                "logo": "",
                 "price": 188.93,
                 "balance": "222.4000",
                 "frozen": "0.0000",
@@ -126,6 +118,7 @@ data 的 total_cny为所有资产折合成人民币的数量
                 "coin_id": "5",
                 "chain_id": "3",
                 "coin_name": "usdt",
+                "logo": "",
                 "price": 0.9993,
                 "balance": "23286.5877",
                 "frozen": "11.0000",
@@ -136,6 +129,7 @@ data 的 total_cny为所有资产折合成人民币的数量
                 "coin_id": "8",
                 "chain_id": "1",
                 "coin_name": "btc",
+                "logo": "",
                 "price": 9027.06,
                 "balance": 0,
                 "frozen": 0,
@@ -143,8 +137,8 @@ data 的 total_cny为所有资产折合成人民币的数量
                 "available_cny": 0
             }
         ],
-        "total_btc": 7.2418181322169,
-        "total_cny": 457606.28752027
+        "total_btc": 7.2312942185617,
+        "total_cny": 456941.28752027
     }
 }
 
