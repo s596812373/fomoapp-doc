@@ -117,7 +117,7 @@ POST 参数:
 4) data: 数组。包含transfer_id: FOMOAPP平台的交易ID; trade_id: 第三方平台的交易ID; httpcode: 支付成功第一次回调第三方服务端的HTTP请求状态 
 
 5. 获取交易详情:
-   调用方式: FOMO客户端调用 
+   调用方式: 接入方客户端调用 
    方法名称: oauth2/resource/get_transfer_detail
 POST 参数:
 1) transfer_id =  FOMOAPP平台的交易ID
