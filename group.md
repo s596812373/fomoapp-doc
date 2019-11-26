@@ -207,6 +207,7 @@ admin_count: 管理员数量
 2)group_id int(11) 必填[群组ID]
 3)pre_invite int(11) 必填[要邀请用户的user_id]
 
+
 12.解散群组(只能是管理员)
 方法: im/group_dismiss
 参数:
