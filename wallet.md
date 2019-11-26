@@ -168,7 +168,7 @@ withdraw_id,下一步发送验证码需要用到
 1) session_key vchar(55) 必填；
 2）user_name   vchar(125) 必填[发送验证码的手机号或者邮箱];
 3)withdraw_id   int     必填[上一步收到的withdraw_id];
-返回： 只有状态，成功集进入第三步
+返回： 只有状态，成功即进入第三步
 
 6.提现第三步，输入资金密码和验证码并提交
 方法: wallet/submit_withdraw
@@ -178,7 +178,7 @@ withdraw_id,下一步发送验证码需要用到
 3) wallet_pwd   vchar(55)   必填[资金密码];
 4) withdraw_id   int     必填[第一步收到的withdraw_id];
 返回:
-actual_amount 为实际导致金额
+actual_amount 为实际到帐金额
 {
     "success": true,
     "status": 1,
