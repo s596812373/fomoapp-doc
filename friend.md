@@ -9,6 +9,7 @@ RC:ContactNtf
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)user_id vchar(22) 必填[对方用户Id]
 3)wallet_pwd vchar(22) 选填[若对方设置好友付费则需要填写]
+4）content   vchar(125) 选填[附加消息]
 同时将推送消息给对方，消息内容包括
 content, user1,user2,relation_id
 
@@ -18,6 +19,7 @@ content, user1,user2,relation_id
 1)session_key vchar(55) 必填[存在本地的用户session]
 2)relation_id int 必填[上步推送过来的relation_id]
 3)status int    必填[1接受好友，2拒绝好友]
+4）content   vchar(125) 选填[附加消息]
 同时将推送消息给对方，消息内容包括
 content,user1,user2,status
 
