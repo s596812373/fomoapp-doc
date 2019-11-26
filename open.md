@@ -118,7 +118,7 @@ POST 参数:
 
 5. 获取交易详情:
    调用方式: FOMO客户端调用 
-   方法名称: oauth2/resource/pre_pay
+   方法名称: oauth2/resource/get_transfer_detail
 POST 参数:
 1) transfer_id =  FOMOAPP平台的交易ID
  返回信息：
