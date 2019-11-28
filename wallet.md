@@ -149,7 +149,26 @@ data 的 total_cny为所有资产折合成人民币的数量
 2) chain_id int(6)	[链ID]必填；
 返回(json格式)
 status=1 成功，0参数不足,2用户未登录，status=21不支持该币种，status=22无法分配地址
-data 为 返回的充值地址
+PS： 不用链的充值格式可能不一样，需要前端分别做不同的渲染
+ETH类型地址返回：
+{
+    "success": true,
+    "status": 1,
+    "msg": "成功",
+    "data": {
+        "address": "0x0f4b6555ce73b3172b1bd2ec93a999e52b2f4089"
+    }
+}
+EOS类型地址返回:
+{
+    "success": true,
+    "status": 1,
+    "msg": "成功",
+    "data": {
+        "address": "12345h12345h",
+        "memo": "1575016801"
+    }
+}
 
 
 4.提现申请第一步
