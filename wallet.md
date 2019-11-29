@@ -250,19 +250,20 @@ tx_scene 表示财务交易场景,deposit充值，withdraw提现，red_packet且
     }
 }
 
-8. 获取用户算力以及24小时最低FOMO和TT持币信息
+8. 获取用户算力以及24小时最低FOMO和TT持币信息,全网总算力
 方法: wallet/get_power
 1) session_key vchar(55) 必填；
 返回:
-其中power为算力，min_fomo为用户24小时内所持fomo最小值，min_tt为用户24小时内所持tt最小值
+其中power为算力，min_fomo为用户24小时内所持fomo最小值，min_tt为用户24小时内所持tt最小值,total_power为全网总算力
 {
     "success": true,
     "status": 1,
     "msg": "成功",
     "data": {
-        "min_fomo": 787,
-        "min_tt": 200,
-        "power": 157
+        "power": "40",
+        "min_fomo": "200.00000000",
+        "min_tt": "441.00000000",
+        "total_power": "76"
     }
 }
 
