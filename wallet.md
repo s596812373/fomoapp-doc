@@ -254,14 +254,14 @@ tx_scene 表示财务交易场景,deposit充值，withdraw提现，red_packet且
 方法: wallet/get_power
 1) session_key vchar(55) 必填；
 返回:
-其中power为算力，fomo_balance为用户24小时内所持fomo最小值，tt_balance为用户24小时内所持tt最小值
+其中power为算力，min_fomo为用户24小时内所持fomo最小值，min_tt为用户24小时内所持tt最小值
 {
     "success": true,
     "status": 1,
     "msg": "成功",
     "data": {
-        "fomo_balance": 787,
-        "tt_balance": 200,
+        "min_fomo": 787,
+        "min_tt": 200,
         "power": 157
     }
 }
