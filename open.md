@@ -45,7 +45,8 @@ POST 参数
 5) scope : userinfo paytoken
 
 3. 将access_token装入请求api的头部
-AUTHORIZATION : Bearer [access_token]
+Authorization : Bearer [access_token]
+
 
 
 三： 调用api
